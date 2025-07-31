@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=8 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
+[ext_resource type="Material" uid="uid://d4ik1bnmnhg5v" path="res://models/kenney_castle-kit/Models/Materials/TestEnemy.tres" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="5_lquwl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
+height = 0.4
+radius = 0.1
 
 [node name="Node3D" type="Node3D"]
 
@@ -12,3 +20,50 @@ metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
 [node name="TowerCommands" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
 metadata/_custom_type_script = "uid://cvwfp2oi3vfgt"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(13.7756, 0, 0, 0, 0.253638, 0, 0, 0, 9.71064, 0, 0, 0)
+use_collision = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.855699, 0.517475, 0, -0.517475, 0.855699, 0.862187, 3.20243, 4.26671)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.970197, 0.241975, -0.0128731, -0.154515, 0.658702, 0.736367, 0.186662, -0.712432, 0.67646, 1.44224, 0.776473, 0.413263)
+
+[node name="siege-tower2" parent="." instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.736527, 0, -0.942249)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="siege-tower2"]
+radius = 0.2
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="siege-tower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66476, 0, 0)
+radius = 0.2
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="siege-tower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74683, 0, 0)
+radius = 0.2
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="siege-tower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03892, 0, 0.139462)
+radius = 0.2
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="siege-tower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03892, 0, 3.41285)
+radius = 0.2
+
+[node name="Enemy" type="RigidBody3D" parent="." node_paths=PackedStringArray("_waypoint_parent")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30349, 0.424428, 2.643)
+script = ExtResource("4_7mycd")
+_waypoint_parent = NodePath("../siege-tower2")
+
+[node name="EnemyTest" type="CSGCylinder3D" parent="Enemy"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("4_1bvp3")
+
+[node name="Damageable" type="Node" parent="Enemy/EnemyTest"]
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("CylinderShape3D_lquwl")
