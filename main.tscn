@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkrek85drmrcm"]
+
+[ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BeatManager" type="Node" parent="."]
+script = ExtResource("1_ig7tw")
+metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
+
+[node name="TowerCommands" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+metadata/_custom_type_script = "uid://cvwfp2oi3vfgt"
