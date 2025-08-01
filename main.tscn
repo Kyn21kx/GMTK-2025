@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=9 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://d4ik1bnmnhg5v" path="res://models/kenney_castle-kit/Models/Materials/TestEnemy.tres" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="4_7mycd"]
 [ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="7_272bh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 0.4
@@ -68,3 +69,7 @@ script = ExtResource("5_lquwl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
 shape = SubResource("CylinderShape3D_lquwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("7_272bh")]

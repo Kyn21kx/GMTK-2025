@@ -14,3 +14,9 @@ config/name="GMTK-2025"
 run/main_scene="uid://dkrek85drmrcm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalBus="*res://scripts/signal_bus.gd"
+TimeManager="*res://scripts/time_manager.gd"
+Player="*res://scripts/player.gd"
