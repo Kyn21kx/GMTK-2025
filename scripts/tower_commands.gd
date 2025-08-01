@@ -20,11 +20,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var beat_speed : float = BeatManager.s_instance.get_bpm() / SECS_IN_MIN
 	var beat_rate: float = 1 / beat_speed
-	self.time_elapsed += delta
+	time_elapsed += delta
 	if time_elapsed >= beat_rate:
-		self.time_elapsed = 0;
-		self.execute_command(self.slots[current_command_index])
-		self.current_command_index = (self.current_command_index + 1) % self.slots.size()
+		time_elapsed = 0;
+		execute_command(slots[current_command_index])
+		current_command_index = (current_command_index + 1) % slots.size()
 	pass
 
 func execute_command(command: Command):
