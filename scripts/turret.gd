@@ -30,7 +30,16 @@ func _process(_delta: float):
 		find_new_target()
 
 	if target:
-		look_at(target.global_position)
+		look_at_target(target.global_position)
+		target.rotation_degrees.x = 0
+		target.rotation_degrees.z = 0
+
+func look_at_target(p_target: Vector3):
+	self.look_at(p_target)
+	var rot : Vector3 = self.rotation
+	rot.x = 0
+	rot.z = 0
+	self.rotation = rot
 
 func find_new_target():
 	enemies_in_range = enemies_in_range.filter(func(e): return is_instance_valid(e))
