@@ -31,8 +31,6 @@ func _process(_delta: float):
 
 	if target:
 		look_at_target(target.global_position)
-		target.rotation_degrees.x = 0
-		target.rotation_degrees.z = 0
 
 func look_at_target(p_target: Vector3):
 	self.look_at(p_target)
