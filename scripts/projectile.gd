@@ -23,6 +23,7 @@ func _on_body_entered(body: Node3D):
 			printerr("Enemy: %s has not a damageable component" %body.get_parent().name)
 			return
 
-		damageable.damage(damage)
+		damageable.damage(damage, self.type)
 
 	queue_free()
+
