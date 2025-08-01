@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://gvld7w0mgelx"]
+[gd_scene load_steps=23 format=3 uid="uid://gvld7w0mgelx"]
 
 [ext_resource type="Script" uid="uid://b4p2pgbcn446j" path="res://ui/hud.gd" id="1_pom5v"]
 [ext_resource type="Texture2D" uid="uid://cxq8os622twxo" path="res://ui/ui_assets/panel_bg.png" id="2_pfnlp"]
@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d4i8fwq42g0ex" path="res://ui/ui_assets/atk_magic_active.png" id="4_tvtyy"]
 [ext_resource type="Texture2D" uid="uid://dmhwsyj4pc5jl" path="res://ui/ui_assets/atk_basic_active.png" id="5_li43i"]
 [ext_resource type="Texture2D" uid="uid://6f2mxp0q2mgk" path="res://ui/ui_assets/key_white.png" id="6_a33y5"]
+[ext_resource type="Script" uid="uid://b33262wmwayxf" path="res://scripts/ui/money.gd" id="6_li43i"]
+[ext_resource type="Script" uid="uid://bc7226dsqqx0v" path="res://scripts/ui/score.gd" id="7_a33y5"]
 [ext_resource type="Theme" uid="uid://bx3y5o1h55d3l" path="res://ui/style/default_button.tres" id="8_37bek"]
+[ext_resource type="Script" uid="uid://bd4tqkkx1ufpr" path="res://scripts/ui/time.gd" id="10_37bek"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug41v"]
 texture = ExtResource("3_3q2by")
@@ -48,7 +51,7 @@ bg_color = Color(0.957449, 0.902289, 0, 1)
 corner_radius_top_left = 8
 corner_radius_bottom_left = 8
 
-[node name="Hud" type="Control"]
+[node name="Hud" type="Control" node_paths=PackedStringArray("play_pause")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,6 +59,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pom5v")
+play_pause = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayPause")
 atk_basic = SubResource("StyleBoxTexture_ug41v")
 atk_basic_active = SubResource("StyleBoxTexture_mpo0d")
 atk_magic = SubResource("StyleBoxTexture_tlkqj")
@@ -221,13 +225,65 @@ grow_vertical = 2
 theme = ExtResource("8_37bek")
 text = "Start"
 
-[node name="Restart_btn" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-offset_left = -88.0
-offset_bottom = 50.0
-grow_horizontal = 0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "$0"
+script = ExtResource("6_li43i")
+base_color = Color(1, 1, 1, 1)
+increasing_color = Color(0, 1, 0, 1)
+decreasing_color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("10_37bek")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayPause" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="x1" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x1"
+
+[node name="x2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x2"
+
+[node name="x3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x4"
+
+[node name="Score" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 2
+script = ExtResource("7_a33y5")
+
+[node name="Restart_btn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
 theme = ExtResource("8_37bek")
 text = "Restart"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayPause" to="." method="_on_play_pause_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x1" to="." method="_on_x_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x2" to="." method="_on_x_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x3" to="." method="_on_x_3_pressed"]

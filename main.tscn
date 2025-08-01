@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=9 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
+[ext_resource type="Material" uid="uid://d4ik1bnmnhg5v" path="res://models/kenney_castle-kit/Models/Materials/TestEnemy.tres" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cmtc0ktsl0hol" path="res://scenario.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="7_272bh"]
@@ -56,5 +60,11 @@ _waypoint_parent = NodePath("../siege-tower2")
 [node name="TurretBallista" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(-0.997168, 0, 0.075205, 0, 1, 0, -0.075205, 0, -0.997168, 2.74007, 0.590283, -1.24382)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("CylinderShape3D_lquwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("7_272bh")]
 [node name="Scenario" parent="." instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16527, 0.0718123, 4.6856)
