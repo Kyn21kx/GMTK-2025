@@ -2,9 +2,9 @@ class_name Damageable
 extends Node
 
 @export
-var _health: int = 100
+var _health: float = 100
 
-func damage(amount: int):
+func damage(amount: float):
 	_health -= amount
 	if (_health <= 0):
 		die()

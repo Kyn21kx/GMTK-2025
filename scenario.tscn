@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmtc0ktsl0hol"]
+[gd_scene load_steps=20 format=3 uid="uid://cmtc0ktsl0hol"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://dfxxrap24hsx1" path="res://models/kenney_castle-kit/Models/GLB format/flag-pennant.glb" id="2_xq8p1"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cqegsy0jt1x5k" path="res://models/kenney_castle-kit/Models/GLB format/metal-gate.glb" id="5_vlxiu"]
 [ext_resource type="PackedScene" uid="uid://bheptiaeqp1ae" path="res://models/kenney_castle-kit/Models/GLB format/rocks-large.glb" id="6_jvpr7"]
 [ext_resource type="PackedScene" uid="uid://cc12fit2e3oe8" path="res://models/kenney_castle-kit/Models/GLB format/rocks-small.glb" id="7_bvkh7"]
-[ext_resource type="PackedScene" uid="uid://d3goiofbq1y77" path="res://models/kenney_castle-kit/Models/GLB format/siege-ballista.glb" id="8_kcrnp"]
 [ext_resource type="PackedScene" uid="uid://ch13edksouxk0" path="res://models/kenney_castle-kit/Models/GLB format/tower-hexagon-base.glb" id="9_8rdjq"]
 [ext_resource type="PackedScene" uid="uid://c0noq3qd10qex" path="res://models/kenney_castle-kit/Models/GLB format/tower-hexagon-mid.glb" id="10_4mdkb"]
 [ext_resource type="PackedScene" uid="uid://bqgr6ice4cinc" path="res://models/kenney_castle-kit/Models/GLB format/tower-hexagon-roof-secondary.glb" id="11_d5q3b"]
@@ -66,9 +65,6 @@ transform = Transform3D(0.698015, 0, -0.716083, 0, 1, 0, 0.716083, 0, 0.698015, 
 
 [node name="rocks-small4" parent="." instance=ExtResource("7_bvkh7")]
 transform = Transform3D(0.108121, 0, -0.994138, 0, 1, 0, 0.994138, 0, 0.108121, 4.40994, 0.126819, 4.38157)
-
-[node name="siege-ballista2" parent="." instance=ExtResource("8_kcrnp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630556, 0.126819, 3.09104)
 
 [node name="Tower" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.970309, 0.133521, -5.62676)

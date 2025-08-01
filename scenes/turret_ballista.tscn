@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj00uy7063ljh"]
+
+[ext_resource type="Script" uid="uid://byqsujql5daa1" path="res://scripts/turret.gd" id="1_322ig"]
+[ext_resource type="PackedScene" uid="uid://cxcrut7llfqxe" path="res://models/kenney_castle-kit/Models/GLB format/tower-square-arch.glb" id="1_fdian"]
+[ext_resource type="PackedScene" uid="uid://d3goiofbq1y77" path="res://models/kenney_castle-kit/Models/GLB format/siege-ballista.glb" id="2_5hpuh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5hpuh"]
+radius = 5.0
+
+[node name="TurretBallista" type="Node3D" node_paths=PackedStringArray("cooldown_timer", "detection_area", "muzzle")]
+script = ExtResource("1_322ig")
+cooldown_timer = NodePath("CooldownTimer")
+detection_area = NodePath("DetectionArea")
+muzzle = NodePath("Muzzle")
+
+[node name="tower-square-arch2" parent="." instance=ExtResource("1_fdian")]
+
+[node name="siege-ballista2" parent="." instance=ExtResource("2_5hpuh")]
+transform = Transform3D(-0.136839, 0, 0.990593, 0, 1, 0, -0.990593, 0, -0.136839, 0.0510823, 0.922338, 0.0778975)
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_5hpuh")
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0565987, 1.34668, -0.955389)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
