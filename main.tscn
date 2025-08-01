@@ -53,10 +53,11 @@ radius = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03892, 0, 3.41285)
 radius = 0.2
 
-[node name="Enemy" type="RigidBody3D" parent="." node_paths=PackedStringArray("_waypoint_parent")]
+[node name="Enemy" type="CharacterBody3D" parent="." node_paths=PackedStringArray("_waypoint_parent", "_visuals")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30349, 0.424428, 2.643)
 script = ExtResource("4_7mycd")
 _waypoint_parent = NodePath("../siege-tower2")
+_visuals = NodePath("EnemyTest")
 
 [node name="EnemyTest" type="CSGCylinder3D" parent="Enemy"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
