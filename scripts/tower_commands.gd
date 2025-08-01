@@ -1,21 +1,23 @@
 class_name TowerCommands
 extends Node
 
-enum Command { None, BasicAttack, MagicAttack, Barrier }
+const PROJECTILE_SCENE = preload("res://scenes/projectil.tscn")
 
-var slots: Array[Command] = []
+var slots: Array[ProjectilesManager.Command] = []
 
-# At 120 bpm = 2 bps
+# At bpm = 2 bps
 
 const SECS_IN_MIN : float = 60
 
+@export
+var shooter: Turret = null
 var time_elapsed : float = 0
 var current_command_index: int = 0
 
 func _ready() -> void:
 	# Default initialize to a 4 slot command buffer, maybe we support others later
 	for i in range(4):
-		slots.push_back(Command.None)
+		slots.push_back(ProjectilesManager.Command.BasicAttack)
 
 func _process(delta: float) -> void:
 	var beat_speed : float = BeatManager.s_instance.get_bpm() / SECS_IN_MIN
@@ -25,8 +27,7 @@ func _process(delta: float) -> void:
 		time_elapsed = 0;
 		execute_command(slots[current_command_index])
 		current_command_index = (current_command_index + 1) % slots.size()
-	pass
 
-func execute_command(command: Command):
-	print("Executed: " + str(command))
-	pass
+func execute_command(command: ProjectilesManager.Command):
+	var projectile_scene := ProjectilesManager.s_instance.projectile_scenes[command]
+	self.shooter.shoot(projectile_scene)

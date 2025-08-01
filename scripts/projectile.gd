@@ -5,7 +5,8 @@ extends Area3D
 @export var speed: float = 20.0
 
 var target: Node3D = null
-
+@export
+var type: ProjectilesManager.Command = ProjectilesManager.Command.BasicAttack
 
 func _physics_process(delta):
 	if not is_instance_valid(target):
