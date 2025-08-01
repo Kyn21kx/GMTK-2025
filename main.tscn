@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=11 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cmtc0ktsl0hol" path="res://scenario.tscn" id="6_7mycd"]
@@ -22,6 +23,7 @@ use_collision = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.855698, 0.517475, 0, -0.517475, 0.855698, 0.862187, 3.20243, 5.36622)
+script = ExtResource("2_4c57u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.970197, 0.241975, -0.0128731, -0.154515, 0.658702, 0.736367, 0.186662, -0.712432, 0.67646, 1.44224, 0.776473, 0.413263)

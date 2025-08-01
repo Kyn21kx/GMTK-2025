@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxvcmebph2qe2"]
+
+[ext_resource type="PackedScene" uid="uid://cxcrut7llfqxe" path="res://models/kenney_castle-kit/Models/GLB format/tower-square-arch.glb" id="1_v05cn"]
+[ext_resource type="Material" uid="uid://cv70rnjbe6ffv" path="res://models/kenney_castle-kit/Models/Materials/outline_mat.tres" id="2_67mxb"]
+
+[node name="tower-square-arch2" instance=ExtResource("1_v05cn")]
+
+[node name="tower-square-arch" parent="." index="0"]
+material_overlay = ExtResource("2_67mxb")

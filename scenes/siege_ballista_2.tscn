@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brcuv5fp1p6rt"]
+
+[ext_resource type="PackedScene" uid="uid://d3goiofbq1y77" path="res://models/kenney_castle-kit/Models/GLB format/siege-ballista.glb" id="1_ju16i"]
+[ext_resource type="Material" uid="uid://cv70rnjbe6ffv" path="res://models/kenney_castle-kit/Models/Materials/outline_mat.tres" id="2_2h2y5"]
+
+[node name="siege-ballista2" instance=ExtResource("1_ju16i")]
+
+[node name="siege-ballista" parent="." index="0"]
+material_overlay = ExtResource("2_2h2y5")

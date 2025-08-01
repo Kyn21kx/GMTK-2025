@@ -16,7 +16,6 @@ func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
 	global_position += direction * speed * delta
 
-
 func _on_body_entered(body: Node3D):
 	if body == target:
 		var damageable: Damageable = body.get_node_or_null("Damageable") as Damageable
