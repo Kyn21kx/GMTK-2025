@@ -1,0 +1,233 @@
+[gd_scene load_steps=20 format=3 uid="uid://gvld7w0mgelx"]
+
+[ext_resource type="Script" uid="uid://b4p2pgbcn446j" path="res://ui/hud.gd" id="1_pom5v"]
+[ext_resource type="Texture2D" uid="uid://cxq8os622twxo" path="res://ui/ui_assets/panel_bg.png" id="2_pfnlp"]
+[ext_resource type="Texture2D" uid="uid://cgp10c3jyepra" path="res://ui/ui_assets/atk_basic.png" id="3_3q2by"]
+[ext_resource type="Texture2D" uid="uid://b0i5002lyysft" path="res://ui/ui_assets/atk_magic.png" id="4_li43i"]
+[ext_resource type="Texture2D" uid="uid://d4i8fwq42g0ex" path="res://ui/ui_assets/atk_magic_active.png" id="4_tvtyy"]
+[ext_resource type="Texture2D" uid="uid://dmhwsyj4pc5jl" path="res://ui/ui_assets/atk_basic_active.png" id="5_li43i"]
+[ext_resource type="Texture2D" uid="uid://6f2mxp0q2mgk" path="res://ui/ui_assets/key_white.png" id="6_a33y5"]
+[ext_resource type="Theme" uid="uid://bx3y5o1h55d3l" path="res://ui/style/default_button.tres" id="8_37bek"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug41v"]
+texture = ExtResource("3_3q2by")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpo0d"]
+texture = ExtResource("5_li43i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlkqj"]
+texture = ExtResource("4_li43i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urddi"]
+texture = ExtResource("4_tvtyy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a33y5"]
+texture = ExtResource("2_pfnlp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37bek"]
+texture = ExtResource("3_3q2by")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28i83"]
+texture = ExtResource("4_tvtyy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qnlx"]
+texture = ExtResource("5_li43i")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrs8l"]
+texture = ExtResource("4_tvtyy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug41v"]
+bg_color = Color(0.215686, 0.156863, 0.215686, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpo0d"]
+bg_color = Color(0.957449, 0.902289, 0, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pom5v")
+atk_basic = SubResource("StyleBoxTexture_ug41v")
+atk_basic_active = SubResource("StyleBoxTexture_mpo0d")
+atk_magic = SubResource("StyleBoxTexture_tlkqj")
+atk_magic_active = SubResource("StyleBoxTexture_urddi")
+
+[node name="TimePanel" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -236.0
+offset_right = 400.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimePanel"]
+layout_mode = 2
+
+[node name="basic_attack" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+texture = ExtResource("3_3q2by")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack"]
+layout_mode = 2
+text = "Basic Attack:"
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("6_a33y5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="basic_attack2" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_li43i")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack2"]
+layout_mode = 2
+text = "Magic Attack:"
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("6_a33y5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack2/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="TimePanel"]
+custom_minimum_size = Vector2(800, 197)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_a33y5")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 24
+
+[node name="Panel" type="Panel" parent="TimePanel/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_37bek")
+
+[node name="Button2" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_28i83")
+
+[node name="Button3" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_8qnlx")
+
+[node name="Button4" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_qrs8l")
+
+[node name="MarginContainer2" type="MarginContainer" parent="TimePanel/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ProgressBar" type="ProgressBar" parent="TimePanel/PanelContainer/MarginContainer2"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ug41v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mpo0d")
+value = 30.0
+show_percentage = false
+
+[node name="Start_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_37bek")
+text = "Start"
+
+[node name="Restart_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme = ExtResource("8_37bek")
+text = "Restart"
