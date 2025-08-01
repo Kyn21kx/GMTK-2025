@@ -11,10 +11,6 @@ var _speed := 1.0
 var _playing := true
 
 
-func _ready() -> void:
-	set_process(true)
-
-
 func toggle():
 	if _playing:
 		pause()
@@ -24,19 +20,20 @@ func toggle():
 
 func play() -> void:
 	_playing = true
-	set_process(true)
+	get_tree().paused = false
 	played.emit()
 
 
 func pause() -> void:
 	_playing = false
-	set_process(false)
+	get_tree().paused = true
 	paused.emit()
 
 
 func change_speed(new_speed: float) -> void:
 	_speed = new_speed
-	set_process(true)
+	Engine.time_scale = _speed
+	get_tree().paused = false
 	speed_changed.emit(new_speed)
 
 
