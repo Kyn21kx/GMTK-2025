@@ -6,6 +6,7 @@ var _score := 0.0
 
 func add_money(delta: float) -> void:
 	_money += delta
+	print("Moneeey")
 	SignalBus.money_changed.emit(_money)
 
 

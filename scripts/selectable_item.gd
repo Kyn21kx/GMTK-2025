@@ -2,11 +2,16 @@ class_name SelectableItem
 
 extends StaticBody3D
 
+enum Type { Turret, Coin }
+
 @export
 var mesh_instances: Array[MeshInstance3D] = []
 
 @export
 var selectable_target: Node3D = null
+
+@export
+var selectable_type: Type
 
 var _material_overlay: StandardMaterial3D
 
