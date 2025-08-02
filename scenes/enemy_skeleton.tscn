@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3kufeotmx44a"]
+
+[ext_resource type="PackedScene" uid="uid://cnqoidg7f6b12" path="res://models/Mini Simple Characters Skeleton Demo/skeleton demo.fbx" id="1_dunik"]
+
+[node name="EnemySkeleton" type="Node3D"]
+
+[node name="skeleton demo" parent="." instance=ExtResource("1_dunik")]
