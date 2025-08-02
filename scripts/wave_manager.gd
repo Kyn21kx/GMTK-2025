@@ -35,6 +35,7 @@ func start_next_wave():
 
 	if current_wave_index >= waves.size():
 		print("Todas las oleadas completadas.")
+		MainHUD.instance.notification.show_waves_completed()
 		all_waves_completed.emit()
 		set_process(false)
 		return

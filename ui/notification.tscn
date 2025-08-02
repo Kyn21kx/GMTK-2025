@@ -9,7 +9,7 @@ font = ExtResource("3_qnk74")
 font_size = 32
 font_color = Color(0.924618, 0.514919, 0.504185, 1)
 
-[node name="Notification" type="Control" node_paths=PackedStringArray("notification_label", "icon")]
+[node name="Notification" type="Control" node_paths=PackedStringArray("notification_label", "icon", "notification_timer")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -21,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_dcphf")
 notification_label = NodePath("HBoxContainer/notification_label")
 icon = NodePath("HBoxContainer/icon")
+notification_timer = NodePath("NotificationTimer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -39,6 +40,7 @@ theme_override_constants/separation = 8
 
 [node name="icon" type="TextureRect" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -48,6 +50,10 @@ expand_mode = 1
 
 [node name="notification_label" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "A new gate has opened"
 label_settings = SubResource("LabelSettings_0epjw")
+
+[node name="NotificationTimer" type="Timer" parent="."]
+one_shot = true
