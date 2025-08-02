@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=17 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://cw0tlnwxxjks5" path="res://scripts/game_manager.gd" id="1_ycdy4"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ycdy4"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dj00r0ko3oygm" path="res://scenes/projectil_magic.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
-[ext_resource type="Material" uid="uid://bxqvgsb5i3frh" path="res://materials/light_mat.tres" id="12_dg77c"]
+[ext_resource type="Script" path="res://scripts/wave_manager.gd" id="12_dg77c"]
 
 [sub_resource type="Environment" id="Environment_dg77c"]
 ssr_enabled = true
@@ -32,14 +32,11 @@ adjustment_brightness = 1.42
 adjustment_contrast = 1.04
 adjustment_saturation = 1.07
 
-[ext_resource type="Script" uid="uid://bh0iafoo1cfnj" path="res://scripts/wave_manager.gd" id="12_dg77c"]
-
 [node name="Main" type="Node3D"]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("waypoints_container")]
 script = ExtResource("1_ycdy4")
 waypoints_container = NodePath("../WaypointsContainer")
-metadata/_custom_type_script = "uid://cw0tlnwxxjks5"
 
 [node name="WaypointsContainer" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -142,7 +139,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16527, 0.0718123, 4.6856)
 [node name="LightPoint" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52405, 0.809705, 0.355299)
 radius = 0.1
-material = ExtResource("12_dg77c")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LightPoint"]
 light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
@@ -152,7 +148,6 @@ light_indirect_energy = 2.0
 [node name="LightPoint2" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08312, 0.8123, -0.573885)
 radius = 0.1
-material = ExtResource("12_dg77c")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LightPoint2"]
 light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
@@ -162,7 +157,6 @@ light_indirect_energy = 2.0
 [node name="LightPoint3" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08312, 1.62249, -0.860845)
 radius = 0.1
-material = ExtResource("12_dg77c")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="LightPoint3"]
 light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
@@ -176,7 +170,6 @@ environment = SubResource("Environment_dg77c")
 script = ExtResource("12_dg77c")
 enemy_scene = ExtResource("4_lquwl")
 spawn_position = NodePath("../EnemySpawnSpot")
-metadata/_custom_type_script = "uid://bh0iafoo1cfnj"
 
 [node name="SpawnTimer" type="Timer" parent="WaveManager"]
 
