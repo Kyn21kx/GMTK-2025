@@ -1,0 +1,254 @@
+[gd_scene load_steps=7 format=3 uid="uid://nfh17holq43p"]
+
+[ext_resource type="LabelSettings" uid="uid://dk1eski2f75j" path="res://fonts/jaini_title.tres" id="1_phi2y"]
+[ext_resource type="Texture2D" uid="uid://bhpl64iank5bc" path="res://ui/ui_assets/icon_attack_magic.png" id="2_wqrtp"]
+[ext_resource type="Theme" uid="uid://bx3y5o1h55d3l" path="res://ui/style/default_button.tres" id="3_1l0ic"]
+[ext_resource type="Texture2D" uid="uid://cfsn6ad52355w" path="res://ui/ui_assets/select_slot_screenshot.JPG" id="4_1l0ic"]
+[ext_resource type="Texture2D" uid="uid://c03p1m1a8pplw" path="res://ui/ui_assets/select_slot_attack_screenshot.JPG" id="5_igsva"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igsva"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_right = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="objetive" type="HBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Panel3" type="Panel" parent="VBoxContainer2/objetive"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/objetive/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="empty" type="Label" parent="VBoxContainer2/objetive/Panel3/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2/objetive/Panel3/VBoxContainer"]
+layout_mode = 2
+text = "Objetive"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/objetive/Panel3/VBoxContainer"]
+layout_mode = 2
+text = "Survive. Don't let the enemy take control of the Castle"
+horizontal_alignment = 1
+
+[node name="empty2" type="Label" parent="VBoxContainer2/objetive/Panel3/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Panel2" type="Panel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="howtoplay1" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/VBoxContainer2"]
+layout_mode = 2
+text = "How to Play"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="camera" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/camera"]
+layout_mode = 2
+text = "Camera"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/camera"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wqrtp")
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/camera"]
+layout_mode = 2
+text = "Move the cursor to the screen
+borders to move the camera."
+horizontal_alignment = 1
+
+[node name="build" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/build"]
+layout_mode = 2
+text = "Build"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/build"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wqrtp")
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1/HBoxContainer/build"]
+layout_mode = 2
+text = "Move the cursor over a Flag
+location and click the button
+\"Build\""
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1"]
+layout_mode = 2
+theme_override_constants/separation = 24
+theme_override_styles/separator = SubResource("StyleBoxFlat_igsva")
+
+[node name="Continue" type="Button" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_1l0ic")
+text = "Continue"
+
+[node name="howtoplay2" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/VBoxContainer2"]
+layout_mode = 2
+text = "How to Play"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="camera" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/camera"]
+layout_mode = 2
+text = "Attack Slot"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/camera"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_1l0ic")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/camera"]
+layout_mode = 2
+text = "Use the Keys 1 to 4 
+to select an Attack Slot"
+horizontal_alignment = 1
+
+[node name="build" type="VBoxContainer" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/build"]
+layout_mode = 2
+text = "Assign an Attack"
+label_settings = ExtResource("1_phi2y")
+horizontal_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/build"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_igsva")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2/HBoxContainer/build"]
+layout_mode = 2
+text = "Assign an attack to
+the selected Slot Q and W"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+theme_override_styles/separator = SubResource("StyleBoxFlat_igsva")
+
+[node name="Continue" type="Button" parent="VBoxContainer2/Panel2/MarginContainer/howtoplay2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_1l0ic")
+text = "Play"

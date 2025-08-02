@@ -1,6 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cw0tlnwxxjks5" path="res://scripts/game_manager.gd" id="1_ycdy4"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
@@ -29,7 +30,38 @@ adjustment_brightness = 1.42
 adjustment_contrast = 1.04
 adjustment_saturation = 1.07
 
+[ext_resource type="Script" uid="uid://bh0iafoo1cfnj" path="res://scripts/wave_manager.gd" id="12_dg77c"]
+
 [node name="Main" type="Node3D"]
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("waypoints_container")]
+script = ExtResource("1_ycdy4")
+waypoints_container = NodePath("../WaypointsContainer")
+metadata/_custom_type_script = "uid://cw0tlnwxxjks5"
+
+[node name="WaypointsContainer" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781081, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WaypointsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45763, 0, -0.942249)
+radius = 0.2
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="WaypointsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.79287, 0, -0.942249)
+radius = 0.2
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="WaypointsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2892, 0, -0.942249)
+radius = 0.2
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="WaypointsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58129, 0, -0.802787)
+radius = 0.2
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="WaypointsContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58129, 0, 2.4706)
+radius = 0.2
 
 [node name="BeatManager" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
@@ -61,28 +93,8 @@ light_energy = 0.0
 [node name="siege-tower2" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45763, 0, -0.942249)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="siege-tower2"]
-radius = 0.2
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="siege-tower2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66476, 0, 0)
-radius = 0.2
-
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="siege-tower2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74683, 0, 0)
-radius = 0.2
-
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="siege-tower2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03892, 0, 0.139462)
-radius = 0.2
-
-[node name="CSGSphere3D7" type="CSGSphere3D" parent="siege-tower2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03892, 0, 3.41285)
-radius = 0.2
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("_waypoint_parent") instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36675, 1.06593, 4.24115)
-_waypoint_parent = NodePath("../siege-tower2")
+[node name="Enemy" parent="." instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42524, 0.786312, 4.26443)
 
 [node name="TurretBallista2" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, -4.76837e-07, 0, 0)
@@ -140,3 +152,16 @@ light_indirect_energy = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dg77c")
+
+[node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_position")]
+script = ExtResource("12_dg77c")
+enemy_scene = ExtResource("4_lquwl")
+spawn_position = NodePath("../EnemySpawnSpot")
+metadata/_custom_type_script = "uid://bh0iafoo1cfnj"
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager"]
+
+[node name="WaveTimer" type="Timer" parent="WaveManager"]
+
+[node name="EnemySpawnSpot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42524, 0.786312, 4.26443)

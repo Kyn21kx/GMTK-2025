@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-@export var _waypoint_parent: Node3D
 @export var _path_follow: PathFollow
 @export var _attack_tower := false
 @export var _attack_timer: Timer
@@ -9,8 +8,12 @@ extends CharacterBody3D
 @export var _muzzle: Marker3D
 @export var _coin_packed_scene: PackedScene
 
+var _waypoint_parent: Node3D
+var game_manager: GameManager
 
 func _ready() -> void:
+	game_manager = GameManager.instance
+	_waypoint_parent = game_manager.waypoints_container
 	_path_follow.setup(_waypoint_parent)
 	_attack_timer.wait_time = _attack_cooldown
 	set_process(_attack_tower)

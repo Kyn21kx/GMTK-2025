@@ -1,3 +1,4 @@
+class_name MainHUD
 extends Control
 
 @export var play_pause: Button
@@ -6,6 +7,13 @@ extends Control
 @export var atk_basic_active: StyleBoxTexture
 @export var atk_magic: StyleBoxTexture
 @export var atk_magic_active: StyleBoxTexture
+
+@onready var notification: NotificationMessage = $Notification as NotificationMessage
+
+static var instance: MainHUD
+
+func _init() -> void:
+	instance = self
 
 
 func _on_play_pause_pressed() -> void:
