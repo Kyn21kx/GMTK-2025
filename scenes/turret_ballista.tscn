@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj00uy7063ljh"]
+[gd_scene load_steps=8 format=3 uid="uid://bj00uy7063ljh"]
 
 [ext_resource type="Script" uid="uid://byqsujql5daa1" path="res://scripts/turret.gd" id="1_322ig"]
+[ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="2_oxme8"]
 [ext_resource type="PackedScene" uid="uid://cxvcmebph2qe2" path="res://scenes/tower_square_arch_2.tscn" id="3_5hpuh"]
 [ext_resource type="PackedScene" uid="uid://brcuv5fp1p6rt" path="res://scenes/siege_ballista_2.tscn" id="3_322ig"]
 [ext_resource type="Script" uid="uid://dawcl0u6msc38" path="res://scripts/selectable_item.gd" id="4_322ig"]
@@ -15,6 +16,9 @@ size = Vector3(1.24451, 1.75293, 1.64111)
 script = ExtResource("1_322ig")
 detection_area = NodePath("DetectionArea")
 muzzle = NodePath("Muzzle")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("2_oxme8")
 
 [node name="DetectionArea" type="Area3D" parent="."]
 
@@ -40,6 +44,8 @@ mesh_instances = [NodePath("../siege-ballista3/siege-ballista"), NodePath("../to
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00177002, 0.977764, -0.0625149)
 shape = SubResource("BoxShape3D_5hpuh")
+
+[connection signal="died" from="Damageable" to="." method="_on_died"]
 
 [editable path="tower-square-arch3"]
 [editable path="siege-ballista3"]
