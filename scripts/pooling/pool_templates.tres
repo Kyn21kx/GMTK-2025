@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PoolTemplates" load_steps=5 format=3 uid="uid://nmt48amoghpk"]
+
+[ext_resource type="Script" uid="uid://r34mqaj15bj8" path="res://scripts/pooling/pool_templates.gd" id="1_n2jil"]
+[ext_resource type="Script" uid="uid://cfuw236i0p5rh" path="res://scripts/pooling/pool_template.gd" id="2_n0t0a"]
+[ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="3_n0t0a"]
+
+[sub_resource type="Resource" id="Resource_jixtl"]
+script = ExtResource("2_n0t0a")
+name = "projectil"
+template = ExtResource("3_n0t0a")
+default_size = 10
+size_increase = 10
+metadata/_custom_type_script = "uid://cfuw236i0p5rh"
+
+[resource]
+script = ExtResource("1_n2jil")
+templates = Array[ExtResource("2_n0t0a")]([SubResource("Resource_jixtl")])
+metadata/_custom_type_script = "uid://r34mqaj15bj8"

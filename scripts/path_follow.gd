@@ -1,5 +1,5 @@
 class_name PathFollow
-extends CharacterBody3D
+extends Node
 
 signal arrived
 
@@ -9,23 +9,30 @@ signal arrived
 @export var _rotation_speed := 8.0
 @export var loop := false
 
-@export var _waypoint_parent: Node3D
+
 @export var _visuals: Node3D
+@export var _character: CharacterBody3D
 
+var _waypoint_parent: Node3D
 var _waypoints: Array[Node3D]
-
 var _current_waypoint_idx: int = 0
 
 func _ready() -> void:
-	assert(_waypoint_parent != null)
+	set_physics_process(false)
+
+func setup(waypoint_parent) -> void:
+	assert(waypoint_parent != null)
+	_waypoint_parent = waypoint_parent
 	for child: Node3D in _waypoint_parent.get_children():
 		_waypoints.append(child)
+
 	_waypoints.reverse() # Temporary fix, we need to remove this
+
+	assert(!_waypoints.is_empty())
+	set_physics_process(true)
 
 
 func _physics_process(delta: float) -> void:
-	assert(!_waypoints.is_empty())
-
 	var target : Vector3 = _waypoints[_current_waypoint_idx].global_position
 	var direction := _visuals.global_position.direction_to(target)
 
@@ -34,16 +41,16 @@ func _physics_process(delta: float) -> void:
 	var target_angle := Vector3.BACK.signed_angle_to(direction, Vector3.UP)
 	_visuals.global_rotation.y = lerp_angle(_visuals.global_rotation.y, target_angle, rot_speed)
 
-	var tmp_velocity := velocity
+	var tmp_velocity := _character.velocity
 
 	var y_velocity := tmp_velocity.y
 	tmp_velocity.y = 0.0
 	tmp_velocity = tmp_velocity.move_toward(direction * _speed, _acceleration * delta)
 
-	velocity = tmp_velocity
+	_character.velocity = tmp_velocity
 
 	# Check if the node has reached the next position and just switch
-	var distance_to_next_sqr := (_waypoints[_current_waypoint_idx].global_position - global_position).length_squared()
+	var distance_to_next_sqr := (_waypoints[_current_waypoint_idx].global_position - _character.global_position).length_squared()
 	if distance_to_next_sqr < _arrive_threshold * _arrive_threshold:
 		if loop:
 			_current_waypoint_idx = (_current_waypoint_idx + 1) % _waypoints.size()
@@ -53,4 +60,4 @@ func _physics_process(delta: float) -> void:
 				arrived.emit()
 				set_physics_process(false) # if pooling, set this to true when drawing from pool
 
-	move_and_slide()
+	_character.move_and_slide()
