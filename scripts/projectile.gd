@@ -10,7 +10,7 @@ var type: ProjectilesManager.Command = ProjectilesManager.Command.BasicAttack
 
 func _physics_process(delta):
 	if not is_instance_valid(target):
-		queue_free()
+		queue_free() # PoolManager.return_to_pool("projectile")
 		return
 
 	var direction = global_position.direction_to(target.global_position)
@@ -25,4 +25,4 @@ func _on_body_entered(body: Node3D):
 
 		damageable.damage(damage)
 
-	queue_free()
+	queue_free() # PoolManager.return_to_pool("projectile")
