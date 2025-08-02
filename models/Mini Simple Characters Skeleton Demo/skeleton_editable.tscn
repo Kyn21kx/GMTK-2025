@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://m5ryo8ul201b"]
+
+[ext_resource type="PackedScene" uid="uid://cnqoidg7f6b12" path="res://models/Mini Simple Characters Skeleton Demo/skeleton demo.fbx" id="1_mc0vj"]
+
+[node name="skeleton demo" instance=ExtResource("1_mc0vj")]
+
+[node name="Skeleton3D" parent="Mini Simple Skeleton Armature" index="0"]
+bones/0/position = Vector3(5.59065e-13, 0.435302, 0.0046802)
+bones/0/rotation = Quaternion(-1.65605e-06, 4.65661e-10, -1.98715e-11, 1)
+bones/1/rotation = Quaternion(-0.00758325, -4.65799e-10, 1.63389e-11, 0.999971)
+bones/3/rotation = Quaternion(-0.00214114, -8.41019e-10, 1.00066e-07, 0.999998)
+bones/5/rotation = Quaternion(0.00241561, 2.48186e-15, -1.55462e-14, 0.999997)
+bones/7/position = Vector3(0.0782806, 0.0747732, -3.50543e-05)
+bones/7/rotation = Quaternion(-0.572439, -0.413709, 0.57784, -0.408973)
+bones/8/rotation = Quaternion(0.260538, 0.0310553, -0.106387, 0.959081)
+bones/9/rotation = Quaternion(0.162882, -0.0215617, 0.195024, 0.966939)
+bones/10/rotation = Quaternion(-0.028125, -0.00563471, -0.0167057, 0.999449)
+bones/12/rotation = Quaternion(0.572443, -0.413704, 0.577843, 0.408968)
+bones/13/rotation = Quaternion(0.260539, -0.031055, 0.106387, 0.959081)
+bones/14/rotation = Quaternion(0.162882, 0.0215615, -0.195024, 0.966939)
+bones/15/rotation = Quaternion(-0.0281251, 0.00563464, 0.0167058, 0.999449)
+bones/18/rotation = Quaternion(0.0779846, 0.127077, 0.987114, -0.058102)
+bones/19/rotation = Quaternion(-0.400485, -7.23623e-06, -3.54556e-06, 0.916303)
+bones/20/rotation = Quaternion(0.740275, 0.00325514, -0.0454293, 0.67076)
+bones/21/rotation = Quaternion(0.22945, -1.31605e-06, 0.00237972, 0.973318)
+bones/23/rotation = Quaternion(-0.0779651, 0.127076, 0.987116, 0.0580974)
+bones/24/rotation = Quaternion(-0.400484, 7.25659e-06, 3.56021e-06, 0.916304)
+bones/25/rotation = Quaternion(0.740275, -0.0032364, 0.0454219, 0.67076)
+bones/26/rotation = Quaternion(0.22945, 1.35993e-06, -0.00237971, 0.973318)
+
+[node name="shield_wood" parent="." index="1"]
+transform = Transform3D(3.67413e-08, 1, -3.65178e-06, 0.5, -3.1809e-06, -0.866025, -0.866025, -1.79407e-06, -0.5, 0.389851, 0.238509, -0.301904)
+
+[node name="sword_wood" parent="." index="2"]
+transform = Transform3D(0.117848, 0.97384, -0.194289, 0.0233408, 0.192882, 0.980944, 0.992757, -0.120137, 4.08406e-07, -0.183487, 0.65729, 0.366259)
