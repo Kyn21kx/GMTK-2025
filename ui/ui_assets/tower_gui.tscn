@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1uytpt2ehper"]
+
+[ext_resource type="Script" uid="uid://btsj0iw7oahgq" path="res://ui/ui_assets/tower_gui.gd" id="1_rntmr"]
+[ext_resource type="Texture2D" uid="uid://4e32aio6u4iq" path="res://ui/ui_assets/mini_panel/mini_atk_basic_active.png" id="2_pcbjm"]
+[ext_resource type="Texture2D" uid="uid://b7fny1psw283r" path="res://ui/ui_assets/mini_panel/mini_atk_magic_active.png" id="3_pcbjm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otuch"]
+texture = ExtResource("2_pcbjm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_byaod"]
+texture = ExtResource("3_pcbjm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcbjm"]
+bg_color = Color(0.215686, 0.156863, 0.215686, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otuch"]
+bg_color = Color(0.356645, 0.873133, 0.117111, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byaod"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_30n7x"]
+load_path = "res://.godot/imported/panel_bg.png-b8ba8da60e0fc6077962b5fc4a370a1b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkvg3"]
+texture = SubResource("CompressedTexture2D_30n7x")
+
+[node name="TowerGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rntmr")
+atk_basic_active = SubResource("StyleBoxTexture_otuch")
+atk_magic_active = SubResource("StyleBoxTexture_byaod")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="hp_container" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/hp_container"]
+layout_mode = 2
+text = "HP"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/hp_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 2
+
+[node name="hp_bar" type="ProgressBar" parent="VBoxContainer/hp_container/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_pcbjm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_otuch")
+value = 30.0
+show_percentage = false
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxFlat_byaod")
+
+[node name="mini_panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(170, 38)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mkvg3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/mini_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/mini_panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="texture_1" type="TextureRect" parent="VBoxContainer/mini_panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_pcbjm")
+
+[node name="texture_2" type="TextureRect" parent="VBoxContainer/mini_panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_pcbjm")
+
+[node name="texture_3" type="TextureRect" parent="VBoxContainer/mini_panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_pcbjm")
+
+[node name="texture_4" type="TextureRect" parent="VBoxContainer/mini_panel/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_pcbjm")
