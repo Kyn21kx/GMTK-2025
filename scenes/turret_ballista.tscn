@@ -32,10 +32,11 @@ unique_name_in_owner = true
 [node name="siege-ballista3" parent="." instance=ExtResource("3_322ig")]
 transform = Transform3D(-0.136839, 0, 0.990593, 0, 1, 0, -0.990593, 0, -0.136839, 0.0510823, 0.922338, 0.0778975)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh_instances")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh_instances", "selectable_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00162077, -0.036123, 0.0252781)
 script = ExtResource("4_322ig")
 mesh_instances = [NodePath("../siege-ballista3/siege-ballista"), NodePath("../tower-square-arch3/tower-square-arch")]
+selectable_target = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00177002, 0.977764, -0.0625149)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=12 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b3yluy74ogwjc" path="res://scripts/projectiles_manager.gd" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dj00r0ko3oygm" path="res://scenes/projectil_magic.tscn" id="9_efxa6"]
+[ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
 
 [node name="Main" type="Node3D"]
 
@@ -31,8 +32,10 @@ transform = Transform3D(13.7756, 0, 0, 0, 0.253638, 0, 0, 0, 9.71064, 0, 0, 0)
 use_collision = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.855698, 0.517475, 0, -0.517475, 0.855698, 0.862187, 3.20243, 5.36622)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0.862187, 4.71731, 3.35591)
+fov = 60.0
 script = ExtResource("2_4c57u")
+speed = 3.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.970197, 0.241975, -0.0128731, -0.154515, 0.658702, 0.736367, 0.186662, -0.712432, 0.67646, 1.44224, 0.776473, 0.413263)
@@ -72,7 +75,7 @@ shooter = NodePath("..")
 metadata/_custom_type_script = "uid://cvwfp2oi3vfgt"
 
 [node name="TurretBallista" parent="." instance=ExtResource("7_272bh")]
-transform = Transform3D(-0.997168, 0, 0.075205, 0, 1, 0, -0.075205, 0, -0.997168, 2.74007, 0.590283, -1.24382)
+transform = Transform3D(-0.997168, 0, 0.075205, 0, 1, 0, -0.075205, 0, -0.997168, 2.74, 0, -1.244)
 
 [node name="TowerCommands" type="Node" parent="TurretBallista" node_paths=PackedStringArray("shooter")]
 script = ExtResource("2_0xm2m")
@@ -80,6 +83,9 @@ shooter = NodePath("..")
 metadata/_custom_type_script = "uid://cvwfp2oi3vfgt"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("10_efxa6")]
+visible = false
 
 [node name="Scenario" parent="." instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16527, 0.0718123, 4.6856)
