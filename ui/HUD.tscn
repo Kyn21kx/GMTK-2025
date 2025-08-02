@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://gvld7w0mgelx"]
+[gd_scene load_steps=28 format=3 uid="uid://gvld7w0mgelx"]
 
 [ext_resource type="Script" uid="uid://b4p2pgbcn446j" path="res://ui/hud.gd" id="1_pom5v"]
 [ext_resource type="Texture2D" uid="uid://cxq8os622twxo" path="res://ui/ui_assets/panel_bg.png" id="2_pfnlp"]
@@ -6,11 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://b0i5002lyysft" path="res://ui/ui_assets/atk_magic.png" id="4_li43i"]
 [ext_resource type="Texture2D" uid="uid://d4i8fwq42g0ex" path="res://ui/ui_assets/atk_magic_active.png" id="4_tvtyy"]
 [ext_resource type="Texture2D" uid="uid://dmhwsyj4pc5jl" path="res://ui/ui_assets/atk_basic_active.png" id="5_li43i"]
+[ext_resource type="Texture2D" uid="uid://cpwgau2t0crcu" path="res://ui/ui_assets/icon_attack_basic.png" id="6_8qnlx"]
 [ext_resource type="Texture2D" uid="uid://6f2mxp0q2mgk" path="res://ui/ui_assets/key_white.png" id="6_a33y5"]
 [ext_resource type="Script" uid="uid://b33262wmwayxf" path="res://scripts/ui/money.gd" id="6_li43i"]
 [ext_resource type="Script" uid="uid://bc7226dsqqx0v" path="res://scripts/ui/score.gd" id="7_a33y5"]
 [ext_resource type="Theme" uid="uid://bx3y5o1h55d3l" path="res://ui/style/default_button.tres" id="8_37bek"]
+[ext_resource type="Texture2D" uid="uid://bhpl64iank5bc" path="res://ui/ui_assets/icon_attack_magic.png" id="8_qrs8l"]
+[ext_resource type="Texture2D" uid="uid://e13fmt6rwlpf" path="res://ui/ui_assets/coin.png" id="9_ug41v"]
 [ext_resource type="Script" uid="uid://bd4tqkkx1ufpr" path="res://scripts/ui/time.gd" id="10_37bek"]
+[ext_resource type="Texture2D" uid="uid://coxv7wsfgbqvt" path="res://ui/ui_assets/key_black.png" id="15_mpo0d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug41v"]
 texture = ExtResource("3_3q2by")
@@ -29,6 +33,18 @@ texture = ExtResource("2_pfnlp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_37bek"]
 texture = ExtResource("3_3q2by")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlkqj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28i83"]
 texture = ExtResource("4_tvtyy")
@@ -59,11 +75,106 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pom5v")
-play_pause = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayPause")
+play_pause = NodePath("top/VBoxContainer/VBoxContainer/HBoxContainer2/PlayPause")
 atk_basic = SubResource("StyleBoxTexture_ug41v")
 atk_basic_active = SubResource("StyleBoxTexture_mpo0d")
 atk_magic = SubResource("StyleBoxTexture_tlkqj")
 atk_magic_active = SubResource("StyleBoxTexture_urddi")
+
+[node name="top" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="top"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="top/VBoxContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="top/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+horizontal_alignment = 1
+script = ExtResource("10_37bek")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="top/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayPause" type="Button" parent="top/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Pause"
+
+[node name="x1" type="Button" parent="top/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "x1"
+
+[node name="x2" type="Button" parent="top/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "x2"
+
+[node name="x3" type="Button" parent="top/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "x4"
+
+[node name="Restart_btn" type="Button" parent="top"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("8_37bek")
+text = "Restart"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="top"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="top/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="top/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_ug41v")
+
+[node name="Money" type="Label" parent="top/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "$0"
+script = ExtResource("6_li43i")
+base_color = Color(1, 1, 1, 1)
+increasing_color = Color(0, 1, 0, 1)
+decreasing_color = Color(1, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="top/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="top/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Score:"
+
+[node name="Score" type="Label" parent="top/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("7_a33y5")
 
 [node name="TimePanel" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -72,15 +183,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -400.0
-offset_top = -236.0
-offset_right = 400.0
+offset_left = -230.0
+offset_top = -163.0
+offset_right = 230.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TimePanel"]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 16
 
 [node name="basic_attack" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
 layout_mode = 2
@@ -88,7 +201,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack"]
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
-texture = ExtResource("3_3q2by")
+texture = ExtResource("6_8qnlx")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack"]
@@ -116,26 +229,26 @@ text = "Q"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="basic_attack2" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
+[node name="magic_attack" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack2"]
+[node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/magic_attack"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
-texture = ExtResource("4_li43i")
+texture = ExtResource("8_qrs8l")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack2"]
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/magic_attack"]
 layout_mode = 2
 text = "Magic Attack:"
 
-[node name="btn_key" type="TextureRect" parent="TimePanel/HBoxContainer/basic_attack2"]
+[node name="btn_key" type="TextureRect" parent="TimePanel/HBoxContainer/magic_attack"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("6_a33y5")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="TimePanel/HBoxContainer/basic_attack2/btn_key"]
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/magic_attack/btn_key"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -151,8 +264,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="TimePanel"]
-custom_minimum_size = Vector2(800, 197)
+custom_minimum_size = Vector2(460, 124)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxTexture_a33y5")
 
 [node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer"]
@@ -178,31 +293,193 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_37bek")
 
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selected" type="Panel" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlkqj")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("6_a33y5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button/MarginContainer/MarginContainer/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button2" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_28i83")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selected" type="Panel" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button2/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlkqj")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button2/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("15_mpo0d")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button2/MarginContainer/MarginContainer/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button3" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_8qnlx")
 
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selected" type="Panel" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button3/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlkqj")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button3/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("15_mpo0d")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button3/MarginContainer/MarginContainer/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Button4" type="Button" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_qrs8l")
 
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Selected" type="Panel" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button4/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlkqj")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button4/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button4/MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("6_a33y5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/PanelContainer/MarginContainer/Panel/HBoxContainer/Button4/MarginContainer/MarginContainer/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer2" type="MarginContainer" parent="TimePanel/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="ProgressBar" type="ProgressBar" parent="TimePanel/PanelContainer/MarginContainer2"]
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ug41v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mpo0d")
@@ -225,65 +502,7 @@ grow_vertical = 2
 theme = ExtResource("8_37bek")
 text = "Start"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 85.0
-grow_horizontal = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Money" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "$0"
-script = ExtResource("6_li43i")
-base_color = Color(1, 1, 1, 1)
-increasing_color = Color(0, 1, 0, 1)
-decreasing_color = Color(1, 0, 0, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Time" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-script = ExtResource("10_37bek")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PlayPause" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Pause"
-
-[node name="x1" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "x1"
-
-[node name="x2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "x2"
-
-[node name="x3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "x4"
-
-[node name="Score" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0"
-horizontal_alignment = 2
-script = ExtResource("7_a33y5")
-
-[node name="Restart_btn" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("8_37bek")
-text = "Restart"
-
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayPause" to="." method="_on_play_pause_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x1" to="." method="_on_x_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x2" to="." method="_on_x_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/x3" to="." method="_on_x_3_pressed"]
+[connection signal="pressed" from="top/VBoxContainer/VBoxContainer/HBoxContainer2/PlayPause" to="." method="_on_play_pause_pressed"]
+[connection signal="pressed" from="top/VBoxContainer/VBoxContainer/HBoxContainer2/x1" to="." method="_on_x_1_pressed"]
+[connection signal="pressed" from="top/VBoxContainer/VBoxContainer/HBoxContainer2/x2" to="." method="_on_x_2_pressed"]
+[connection signal="pressed" from="top/VBoxContainer/VBoxContainer/HBoxContainer2/x3" to="." method="_on_x_3_pressed"]
