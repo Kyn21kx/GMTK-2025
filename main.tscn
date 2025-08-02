@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=16 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://bstrnm41l537j" path="res://scripts/turret_placing_system.gd" id="5_w48qg"]
 [ext_resource type="PackedScene" uid="uid://cmtc0ktsl0hol" path="res://scenario.tscn" id="6_7mycd"]
+[ext_resource type="Material" uid="uid://d62s83ljgkdn" path="res://materials/ghost_placing_mat.tres" id="6_vivmo"]
 [ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="7_272bh"]
 [ext_resource type="Script" uid="uid://b3yluy74ogwjc" path="res://scripts/projectiles_manager.gd" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
@@ -43,6 +45,24 @@ projectile_scenes = Dictionary[int, PackedScene]({
 2: ExtResource("8_4c57u")
 })
 metadata/_custom_type_script = "uid://b3yluy74ogwjc"
+
+[node name="TurretPlacingSystem" type="Node3D" parent="." node_paths=PackedStringArray("allowed_locations_parent")]
+script = ExtResource("5_w48qg")
+_available_turrets_by_name = Dictionary[int, PackedScene]({
+0: ExtResource("7_272bh")
+})
+ghost_material = ExtResource("6_vivmo")
+allowed_locations_parent = NodePath(".")
+
+[node name="PlaceSlot" type="CSGBox3D" parent="TurretPlacingSystem"]
+transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, -1.47342, 0.246497, 4.4398)
+material_override = ExtResource("6_vivmo")
+size = Vector3(1, 0.0776367, 1)
+
+[node name="PlaceSlot2" type="CSGBox3D" parent="TurretPlacingSystem"]
+transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, 1.8732, 0.246497, 4.05897)
+material_override = ExtResource("6_vivmo")
+size = Vector3(1, 0.0776367, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(13.7756, 0, 0, 0, 0.253638, 0, 0, 0, 9.71064, 0, 0, 0)
@@ -103,13 +123,12 @@ metadata/_custom_type_script = "uid://cvwfp2oi3vfgt"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_efxa6")]
-visible = false
 
 [node name="Scenario" parent="." instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16527, 0.0718123, 4.6856)
 
 [node name="LightPoint" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52405, 0.809705, 0.0516844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52405, 0.809705, 0.355299)
 radius = 0.1
 material = ExtResource("12_dg77c")
 

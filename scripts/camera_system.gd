@@ -8,8 +8,16 @@ var last_mouse_posistion: Vector2 = Vector2.ZERO
 var selected_entity: Node3D = null
 var movement_blend: float = 0
 var selected_position: Vector3
+var zoom_limit: float = 10
+var initial_height: float
+var target_zoom_y: float
+@export var zoom_blend_speed: float = 4.0
+@export var zoom_step: float = 2.0
+
 
 func _ready() -> void:
+	self.initial_height = self.global_position.y
+	self.target_zoom_y = self.global_position.y
 	pass
 
 func _process(delta: float) -> void:
@@ -46,22 +54,32 @@ func handle_mouse_movement(delta: float) -> void:
 	# We'll do some percentage of tolerance for the mouse to trigger the movement
 	var tolerance_range := Vector2(window_size.x * 0.1, window_size.y * 0.1)
 
-	var velocity := Vector2.ZERO
+	var velocity := Vector3.ZERO
 
 	if mouse_position.x > window_size.x - tolerance_range.x:
 		velocity.x = 1
 	elif mouse_position.x < 0 + tolerance_range.x:
 		velocity.x = -1
 	if mouse_position.y > window_size.y - tolerance_range.y:
-		velocity.y = 1
+		velocity.z = 1
 	elif mouse_position.y < 0 + tolerance_range.y:
-		velocity.y = -1
+		velocity.z = -1
+	
+	if Input.is_action_just_pressed("mouse_wheel_down"):
+		self.target_zoom_y += self.zoom_step
+	elif Input.is_action_just_pressed("mouse_wheel_up"):
+		self.target_zoom_y -= self.zoom_step
+	
+	self.target_zoom_y = clampf(self.target_zoom_y, self.initial_height, self.zoom_limit)
 
-	velocity = velocity.normalized()
+	# Horrible code, sorry
 	var current_position := self.global_position
-	# var mouse_acceleration_magnitude = (mouse_position - self.last_mouse_posistion).length()
-	current_position.x += velocity.x * self.speed * delta
-	current_position.z += velocity.y * self.speed * delta
+	current_position.y = lerp(current_position.y, self.target_zoom_y, delta * self.zoom_blend_speed)
+	velocity.y = 0
+	velocity = velocity.normalized()
+	print("Velocity: ", velocity)
+	current_position += velocity * self.speed * delta
+	current_position.y = clampf(current_position.y, self.initial_height, self.zoom_limit)
 
 	self.global_position = current_position
 	self.last_mouse_posistion = mouse_position
@@ -69,6 +87,8 @@ func handle_mouse_movement(delta: float) -> void:
 
 
 func handle_hover_item() -> void:
+	if TurretPlacingSystem.s_instance.is_placing:
+		return
 	var mouse_position: Vector2 = self.get_viewport().get_mouse_position()
 	var from = project_ray_origin(mouse_position)
 
