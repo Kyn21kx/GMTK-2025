@@ -28,7 +28,6 @@ corner_radius_bottom_left = 4
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_30n7x"]
-load_path = "res://.godot/imported/panel_bg.png-b8ba8da60e0fc6077962b5fc4a370a1b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mkvg3"]
 texture = SubResource("CompressedTexture2D_30n7x")
