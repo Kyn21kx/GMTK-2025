@@ -12,6 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dj00r0ko3oygm" path="res://scenes/projectil_magic.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
+[ext_resource type="Material" uid="uid://bxqvgsb5i3frh" path="res://materials/light_mat.tres" id="12_dg77c"]
+
+[sub_resource type="Environment" id="Environment_dg77c"]
+ssr_enabled = true
+ssil_radius = 5.8
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_bloom = 1.0
+glow_blend_mode = 4
+volumetric_fog_density = 0.07
+volumetric_fog_albedo = Color(0, 0.419608, 0.207843, 1)
+volumetric_fog_emission_energy = 2.0
+adjustment_enabled = true
+adjustment_brightness = 1.42
+adjustment_contrast = 1.04
+adjustment_saturation = 1.07
+
 [ext_resource type="Script" uid="uid://bh0iafoo1cfnj" path="res://scripts/wave_manager.gd" id="12_dg77c"]
 
 [node name="Main" type="Node3D"]
@@ -70,6 +88,7 @@ speed = 3.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.970197, 0.241975, -0.0128731, -0.154515, 0.658702, 0.736367, 0.186662, -0.712432, 0.67646, 1.44224, 0.776473, 0.413263)
+light_energy = 0.0
 
 [node name="siege-tower2" parent="." instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45763, 0, -0.942249)
@@ -100,6 +119,39 @@ visible = false
 
 [node name="Scenario" parent="." instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16527, 0.0718123, 4.6856)
+
+[node name="LightPoint" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52405, 0.809705, 0.0516844)
+radius = 0.1
+material = ExtResource("12_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightPoint"]
+light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
+light_energy = 1.741
+light_indirect_energy = 2.0
+
+[node name="LightPoint2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08312, 0.8123, -0.573885)
+radius = 0.1
+material = ExtResource("12_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightPoint2"]
+light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
+light_energy = 1.741
+light_indirect_energy = 2.0
+
+[node name="LightPoint3" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08312, 1.62249, -0.860845)
+radius = 0.1
+material = ExtResource("12_dg77c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightPoint3"]
+light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
+light_energy = 1.741
+light_indirect_energy = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dg77c")
 
 [node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_position")]
 script = ExtResource("12_dg77c")

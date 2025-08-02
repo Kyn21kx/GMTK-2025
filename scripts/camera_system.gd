@@ -13,7 +13,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	self.handle_tower_selection()
+	self.handle_hover_item()
 	self.handle_mouse_movement(delta)
 	if selected_entity != null:
 		self.lock_to_target(delta)
@@ -35,7 +35,6 @@ func get_target_position_at_center() -> Vector3:
 	
 	var world_space_offset: Vector3 = center_world_pos - target_current_world_pos
 
-	print("center world pos: ", center_world_pos, "; target world position: ", target_current_world_pos, "; offset: ", world_space_offset)
 	var target_pos : Vector3 = self.global_position - world_space_offset
 	target_pos.y = self.global_position.y # Ignore height, lol
 	return target_pos
@@ -69,7 +68,7 @@ func handle_mouse_movement(delta: float) -> void:
 
 
 
-func handle_tower_selection() -> void:
+func handle_hover_item() -> void:
 	var mouse_position: Vector2 = self.get_viewport().get_mouse_position()
 	var from = project_ray_origin(mouse_position)
 
@@ -83,12 +82,26 @@ func handle_tower_selection() -> void:
 
 	var result = space_state.intersect_ray(query)
 
-	if result:
-		var hovered_object = result.collider as SelectableItem
-		if hovered_object == null:
-			return
-		hovered_object.hovering_over = true
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			self.selected_entity = hovered_object.selectable_target
+	if !result:
+		return
+
+	var hovered_object = result.collider as SelectableItem
+	if hovered_object == null:
+		return
+	hovered_object.hovering_over = true
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		handle_object_selection(hovered_object)
+
+
+func handle_object_selection(selectable_item: SelectableItem) -> void:
+	var selected_type: SelectableItem.Type = selectable_item.selectable_type
+	match selected_type:
+		SelectableItem.Type.Turret:
+			self.selected_entity = selectable_item.selectable_target
 			self.movement_blend = 0
 			self.selected_position = self.get_target_position_at_center()
+		SelectableItem.Type.Coin:
+			selectable_item.selectable_target.queue_free()
+			const default_money_amount: float = 10.0 
+			Player.add_money(default_money_amount)
+			pass

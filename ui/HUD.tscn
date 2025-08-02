@@ -168,6 +168,7 @@ script = ExtResource("6_li43i")
 base_color = Color(1, 1, 1, 1)
 increasing_color = Color(0, 1, 0, 1)
 decreasing_color = Color(1, 0, 0, 1)
+value_animation_time = 1.5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="top/VBoxContainer2"]
 layout_mode = 2

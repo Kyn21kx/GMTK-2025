@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1y3alau8s1yk"]
+[gd_scene load_steps=7 format=3 uid="uid://b1y3alau8s1yk"]
 
 [ext_resource type="Script" uid="uid://1sip1403wiyl" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Material" uid="uid://d4ik1bnmnhg5v" path="res://models/kenney_castle-kit/Models/Materials/TestEnemy.tres" id="2_5uy6h"]
+[ext_resource type="PackedScene" uid="uid://csj20234osffm" path="res://scenes/coins.tscn" id="2_c4w8v"]
 [ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="3_c4w8v"]
 [ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="4_5uy6h"]
 
@@ -14,6 +15,7 @@ script = ExtResource("1_4ra3w")
 _path_follow = NodePath("PathFollow")
 _attack_timer = NodePath("AttackTimer")
 _muzzle = NodePath("Muzzle")
+_coin_packed_scene = ExtResource("2_c4w8v")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("3_c4w8v")

@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var _attack_range := 10.0
 @export var _attack_cooldown := 1.0
 @export var _muzzle: Marker3D
+@export var _coin_packed_scene: PackedScene
 
 var _waypoint_parent: Node3D
 var game_manager: GameManager
@@ -41,6 +42,10 @@ func shoot(target: Node3D) -> void:
 	_attack_timer.start()
 
 func _on_died() -> void:
+	var root := self.get_tree().root
+	var coin_node : Node3D = self._coin_packed_scene.instantiate()
+	coin_node.global_position = self.global_position
+	root.add_child(coin_node)
 	queue_free()
 
 
