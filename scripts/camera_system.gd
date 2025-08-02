@@ -35,7 +35,6 @@ func get_target_position_at_center() -> Vector3:
 	
 	var world_space_offset: Vector3 = center_world_pos - target_current_world_pos
 
-	print("center world pos: ", center_world_pos, "; target world position: ", target_current_world_pos, "; offset: ", world_space_offset)
 	var target_pos : Vector3 = self.global_position - world_space_offset
 	target_pos.y = self.global_position.y # Ignore height, lol
 	return target_pos
