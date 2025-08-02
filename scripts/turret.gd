@@ -1,6 +1,8 @@
 class_name Turret
 extends Node3D
 
+static var turrets: Array[Turret] = []
+
 @export var detection_area: Area3D
 @export var muzzle: Marker3D
 
@@ -9,6 +11,7 @@ var target: Node3D = null
 
 
 func _ready():
+	turrets.append(self)
 	detection_area.body_entered.connect(_on_detection_area_body_entered)
 	detection_area.body_exited.connect(_on_detection_area_body_exited)
 
@@ -56,3 +59,8 @@ func shoot(p_projectile: PackedScene):
 	projectile.target = target
 	get_tree().root.add_child(projectile)
 	projectile.global_position = muzzle.global_position
+
+
+func _on_died() -> void:
+	turrets.erase(self)
+	queue_free()

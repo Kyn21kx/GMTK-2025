@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1y3alau8s1yk"]
+[gd_scene load_steps=6 format=3 uid="uid://b1y3alau8s1yk"]
 
-[ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="1_4ra3w"]
+[ext_resource type="Script" uid="uid://1sip1403wiyl" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Material" uid="uid://d4ik1bnmnhg5v" path="res://models/kenney_castle-kit/Models/Materials/TestEnemy.tres" id="2_5uy6h"]
 [ext_resource type="Script" uid="uid://bnih7bnqa04rc" path="res://scripts/damageable.gd" id="3_c4w8v"]
+[ext_resource type="Script" uid="uid://dun8xsv61o271" path="res://scripts/path_follow.gd" id="4_5uy6h"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 0.4
 radius = 0.1
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("_visuals") groups=["enemies"]]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("_path_follow", "_attack_timer", "_muzzle") groups=["enemies"]]
 script = ExtResource("1_4ra3w")
-_visuals = NodePath("EnemyTest")
+_path_follow = NodePath("PathFollow")
+_attack_timer = NodePath("AttackTimer")
+_muzzle = NodePath("Muzzle")
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("3_c4w8v")
@@ -21,3 +24,18 @@ material_override = ExtResource("2_5uy6h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_lquwl")
+
+[node name="PathFollow" type="Node" parent="." node_paths=PackedStringArray("_visuals", "_character")]
+script = ExtResource("4_5uy6h")
+_visuals = NodePath("../EnemyTest")
+_character = NodePath("..")
+metadata/_custom_type_script = "uid://dun8xsv61o271"
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00172993, 0.000245631, -0.249793)
+
+[connection signal="died" from="Damageable" to="." method="_on_died"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
