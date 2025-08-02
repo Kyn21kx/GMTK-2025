@@ -1,10 +1,13 @@
 class_name Turret
 extends Node3D
 
+enum Type { Light, Heavy }
+
 static var turrets: Array[Turret] = []
 
 @export var detection_area: Area3D
 @export var muzzle: Marker3D
+@export var turret_type: Type
 
 var enemies_in_range: Array = []
 var target: Node3D = null
