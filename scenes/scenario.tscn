@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=31 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://3yrig8mkjywi" path="res://models/kenney_castle-kit/Models/GLB format/siege-ram.glb" id="24_x3au4"]
 [ext_resource type="PackedScene" uid="uid://djuhlujl0w3mk" path="res://models/kenney_castle-kit/Models/GLB format/siege-ram-demolished.glb" id="25_nvywk"]
 [ext_resource type="PackedScene" uid="uid://ch3agqj71h8cd" path="res://models/kenney_castle-kit/Models/GLB format/tower-square.glb" id="26_1c8nx"]
+[ext_resource type="PackedScene" uid="uid://c82664qpgp2ew" path="res://models/Torch/cartoon_torch.glb" id="27_jytsh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab7ru"]
 blend_mode = 4
@@ -34,6 +35,9 @@ albedo_color = Color(0.874118, 0.716586, 0.62347, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpct5"]
 blend_mode = 4
 albedo_color = Color(0.889009, 0.664021, 0.403698, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuaxu"]
+albedo_color = Color(1, 1, 0, 1)
 
 [node name="Scenario" type="Node3D"]
 
@@ -747,3 +751,45 @@ transform = Transform3D(-0.470617, 0, -1.30165, 0, 4.18984, 0, 1.54821, 0, -0.39
 
 [node name="ground-hills8" parent="." instance=ExtResource("3_lt46v")]
 transform = Transform3D(-1.33968, 0, 0.763043, 0, 4.18984, 0, -0.907575, 0, -1.12633, 8.83879, 0.119463, 9.64071)
+
+[node name="Torch" type="Node3D" parent="."]
+transform = Transform3D(-0.674014, -0.502761, 0.541235, -0.377036, 0.864182, 0.333218, -0.635255, 0.0205283, -0.77203, 0.289988, 0.118853, -0.235295)
+
+[node name="Torch_3d" parent="Torch" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torch"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torch/LightPoint"]
+light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
+light_energy = 1.741
+light_indirect_energy = 2.0
+
+[node name="Torch2" type="Node3D" parent="."]
+transform = Transform3D(-0.674014, -0.502761, 0.541235, -0.377036, 0.864182, 0.333218, -0.635255, 0.0205283, -0.77203, -1.59411, 0.118853, 3.68802)
+
+[node name="Torch_3d" parent="Torch2" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torch2"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torch2/LightPoint"]
+light_color = Color(0.911754, 0.50887, 5.77569e-07, 1)
+light_energy = 1.741
+light_indirect_energy = 2.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.674014, -0.502761, 0.541235, -0.377036, 0.864182, 0.333218, -0.635255, 0.0205283, -0.77203, 7.22199, 3.37276, 7.8663)
+light_energy = 0.05
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+shadow_blur = 1.893
