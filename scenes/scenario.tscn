@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=31 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://3yrig8mkjywi" path="res://models/kenney_castle-kit/Models/GLB format/siege-ram.glb" id="24_x3au4"]
 [ext_resource type="PackedScene" uid="uid://djuhlujl0w3mk" path="res://models/kenney_castle-kit/Models/GLB format/siege-ram-demolished.glb" id="25_nvywk"]
 [ext_resource type="PackedScene" uid="uid://ch3agqj71h8cd" path="res://models/kenney_castle-kit/Models/GLB format/tower-square.glb" id="26_1c8nx"]
+[ext_resource type="PackedScene" uid="uid://c82664qpgp2ew" path="res://models/Torch/cartoon_torch.glb" id="27_jytsh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab7ru"]
 blend_mode = 4
@@ -34,6 +35,9 @@ albedo_color = Color(0.874118, 0.716586, 0.62347, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpct5"]
 blend_mode = 4
 albedo_color = Color(0.889009, 0.664021, 0.403698, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuaxu"]
+albedo_color = Color(1, 1, 0, 1)
 
 [node name="Scenario" type="Node3D"]
 
@@ -88,6 +92,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 [node name="siege-catapult2" parent="entrance" instance=ExtResource("3_kcrnp")]
 transform = Transform3D(0.0294867, 0, -0.635961, 0, 0.733655, 0, 0.711855, 0, 0.026343, -1.20942, 0.097147, 1.06535)
 
+[node name="spawn_light" type="OmniLight3D" parent="entrance"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
+
 [node name="entrance2" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -0.613472)
 
@@ -96,6 +106,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 
 [node name="tower-top3" parent="entrance2" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
+
+[node name="spawn_light" type="OmniLight3D" parent="entrance2"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
 
 [node name="entrance3" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -4.04537)
@@ -106,6 +122,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 [node name="tower-top3" parent="entrance3" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
+[node name="spawn_light" type="OmniLight3D" parent="entrance3"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
+
 [node name="entrance4" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -7.97276)
 
@@ -114,6 +136,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 
 [node name="tower-top3" parent="entrance4" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
+
+[node name="spawn_light" type="OmniLight3D" parent="entrance4"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
 
 [node name="entrance5" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, 7.81152)
@@ -124,6 +152,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 [node name="tower-top3" parent="entrance5" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
+[node name="spawn_light" type="OmniLight3D" parent="entrance5"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
+
 [node name="entrance6" type="Node3D" parent="."]
 transform = Transform3D(-0.999145, 0, 0.041387, 0, 1, 0, -0.041387, 0, -0.999145, -2.6099, 0.142615, 9.63183)
 
@@ -132,6 +166,12 @@ transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.04138
 
 [node name="tower-top3" parent="entrance6" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
+
+[node name="spawn_light" type="OmniLight3D" parent="entrance6"]
+transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
+light_color = Color(0.332161, 0.548817, 0.786439, 1)
+light_energy = 4.486
+omni_range = 0.625
 
 [node name="door2" parent="." instance=ExtResource("1_dmg1w")]
 transform = Transform3D(1, 0, 0, 0, 1.04776, 0, 0, 0, 1.1355, -6.69085, 0.126819, 0.829098)
@@ -167,7 +207,7 @@ transform = Transform3D(1, 6.30962e-11, 0, -1.39153e-10, 1, 1.81899e-12, 7.45058
 transform = Transform3D(-1.78875, -0.000917194, 1.95381e-05, -0.00872008, 0.999998, -2.42453e-05, -0.00514875, -0.00067559, -1.00304, 0.445286, 0.00217165, 0.0385294)
 
 [node name="ground2" parent="." instance=ExtResource("4_ar7cb")]
-transform = Transform3D(20, 0, 0, 0, 1.065, 0, 0, 0, 20, 0.599527, 0.126819, 0.677899)
+transform = Transform3D(20, 0, 0, 0, 1.065, 0, 0, 0, 20, 0.599784, 0.126819, 0.673146)
 
 [node name="rocks-large2" parent="." instance=ExtResource("6_jvpr7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47583, 0.126819, 6.43423)
@@ -435,8 +475,8 @@ size = Vector3(0.703613, 0.001, 2.81136)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="routes"]
-transform = Transform3D(0.115665, 0, 0.993288, 0, 1, 0, -0.993288, 0, 0.115665, -3.97074, -0.00323462, 2.62398)
-size = Vector3(0.703613, 0.001, 2.49643)
+transform = Transform3D(0.115665, 0, 0.993288, 0, 1, 0, -0.993288, 0, 0.115665, -4.15943, -0.00323462, 2.60201)
+size = Vector3(0.703613, 0.001, 2.1165)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="routes"]
@@ -495,8 +535,8 @@ size = Vector3(0.703613, 0.001, 1.84088)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="routes"]
-transform = Transform3D(0.316544, 0, -0.948579, 0, 1, 0, 0.948579, 0, 0.316544, 5.39616, 0.00284433, 7.44512)
-size = Vector3(0.703613, 0.001, 1.84088)
+transform = Transform3D(0.316544, 0, -0.948578, 0, 1, 0, 0.948578, 0, 0.316544, 5.42452, 0.00159597, 7.43313)
+size = Vector3(0.703613, 0.001, 1.90433)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="routes"]
@@ -515,18 +555,18 @@ size = Vector3(0.703613, 0.001, 4.34903)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="routes"]
-transform = Transform3D(0.994992, 0, -0.099962, 0, 1, 0, 0.099962, 0, 0.994992, 3.11659, 0.00284433, 8.2206)
-size = Vector3(0.703613, 0.001, 1.84088)
+transform = Transform3D(0.994992, 0, -0.099962, 0, 1, 0, 0.099962, 0, 0.994992, 3.11, 0.00284433, 8.28617)
+size = Vector3(0.703613, 0.001, 1.97269)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="routes"]
-transform = Transform3D(0.994992, 0, -0.099962, 0, 1, 0, 0.099962, 0, 0.994992, 3.00385, 0.00284433, 10.138)
+transform = Transform3D(0.999975, 0, -0.0071205, 0, 1, 0, 0.0071205, 0, 0.999975, 3.00385, 0.00284433, 10.138)
 size = Vector3(0.703613, 0.001, 1.84088)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D36" type="CSGBox3D" parent="routes"]
-transform = Transform3D(0.994993, 0, -0.099962, 0, 1, 0, 0.099962, 0, 0.994993, 2.86492, 0.00284433, 11.9671)
-size = Vector3(0.703613, 0.001, 1.84088)
+transform = Transform3D(0.994994, 0, -0.099962, 0, 1, 0, 0.099962, 0, 0.994994, 2.9114, 0.00284433, 11.9037)
+size = Vector3(0.703613, 0.001, 1.94095)
 material = SubResource("StandardMaterial3D_fpct5")
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="routes"]
@@ -747,3 +787,484 @@ transform = Transform3D(-0.470617, 0, -1.30165, 0, 4.18984, 0, 1.54821, 0, -0.39
 
 [node name="ground-hills8" parent="." instance=ExtResource("3_lt46v")]
 transform = Transform3D(-1.33968, 0, 0.763043, 0, 4.18984, 0, -0.907575, 0, -1.12633, 8.83879, 0.119463, 9.64071)
+
+[node name="Torches" type="Node3D" parent="."]
+transform = Transform3D(-0.674014, -0.502761, 0.541236, -0.377036, 0.864182, 0.333218, -0.635255, 0.020528, -0.77203, 7.22199, 3.37276, 7.8663)
+
+[node name="Torch" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.4331e-07, 7.45058e-07, 9.31323e-09, 1, 7.45058e-07, -2.08616e-07, -3.72529e-09, 1, 12.0557, 1.20025, 0.763149)
+
+[node name="Torch_3d" parent="Torches/Torch" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch19" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.42378e-07, 7.15256e-07, 4.00469e-08, 1, 7.7486e-07, -2.68221e-07, -1.86265e-09, 1, 13.8343, 2.78145, -1.32512)
+
+[node name="Torch_3d" parent="Torches/Torch19" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch19"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch19/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch20" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.41447e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 0, 1, 15.9404, 2.61514, 1.48919)
+
+[node name="Torch_3d" parent="Torches/Torch20" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch20"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch20/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch21" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.39584e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 0, 1, 12.111, 0.535213, 2.55047)
+
+[node name="Torch_3d" parent="Torches/Torch21" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch21"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch21/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch22" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.38653e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 1.86265e-09, 1, 11.6541, -0.573015, 4.9076)
+
+[node name="Torch_3d" parent="Torches/Torch22" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch22"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch22/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch23" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.37722e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 3.72529e-09, 1, 9.1111, -2.2987, 6.50564)
+
+[node name="Torch_3d" parent="Torches/Torch23" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch23"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch23/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch24" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.34928e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 5.58794e-09, 1, 9.56526, -2.8313, 8.4008)
+
+[node name="Torch_3d" parent="Torches/Torch24" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch24"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch24/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch25" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.33996e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 7.45058e-09, 1, 10.4765, -3.17734, 10.3293)
+
+[node name="Torch_3d" parent="Torches/Torch25" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch25"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch25/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch2" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.44241e-07, 7.7486e-07, 8.3819e-09, 1, 7.13393e-07, -1.78814e-07, -5.58794e-09, 1, 9.82329, 1.53466, -2.6301)
+
+[node name="Torch_3d" parent="Torches/Torch2" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch2"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch2/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch3" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.44241e-07, 7.7486e-07, 8.3819e-09, 1, 7.13393e-07, -1.78814e-07, -5.58794e-09, 1, 10.2249, 0.53339, 0.421018)
+
+[node name="Torch_3d" parent="Torches/Torch3" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch3"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch3/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch4" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.44241e-07, 7.7486e-07, 8.3819e-09, 1, 7.13393e-07, -1.78814e-07, -5.58794e-09, 1, 9.19381, -0.874489, 2.90563)
+
+[node name="Torch_3d" parent="Torches/Torch4" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch4"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch4/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch5" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.4331e-07, 7.45058e-07, 9.31323e-09, 1, 7.45058e-07, -2.08616e-07, -3.72529e-09, 1, 8.37299, -0.847965, 1.90808)
+
+[node name="Torch_3d" parent="Torches/Torch5" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch5"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch5/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch6" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.4331e-07, 7.45058e-07, 9.31323e-09, 1, 7.45058e-07, -2.08616e-07, -3.72529e-09, 1, 7.80071, -1.91363, 4.02429)
+
+[node name="Torch_3d" parent="Torches/Torch6" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch6"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch6/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch7" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.42378e-07, 7.15256e-07, 4.00469e-08, 1, 7.7486e-07, -2.68221e-07, -1.86265e-09, 1, 6.97989, -1.8871, 3.02674)
+
+[node name="Torch_3d" parent="Torches/Torch7" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch7"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch7/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch8" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.39584e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 0, 1, 6.41419, -3.40496, 6.32313)
+
+[node name="Torch_3d" parent="Torches/Torch8" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch8"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch8/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch9" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.38653e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 1.86265e-09, 1, 5.59337, -3.37844, 5.32558)
+
+[node name="Torch_3d" parent="Torches/Torch9" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch9"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch9/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch10" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.37722e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 3.72529e-09, 1, 3.91462, -3.40438, 3.49336)
+
+[node name="Torch_3d" parent="Torches/Torch10" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch10"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch10/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch10/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch11" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.34928e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 5.58794e-09, 1, 4.91562, -2.1147, 1.28127)
+
+[node name="Torch_3d" parent="Torches/Torch11" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch11"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch11/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch11/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch12" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.33996e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 7.45058e-09, 1, 1.69674, -2.95592, -0.179221)
+
+[node name="Torch_3d" parent="Torches/Torch12" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch12"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch12/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch12/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch13" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.33065e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 9.31323e-09, 1, 1.78848, -2.06249, -2.39248)
+
+[node name="Torch_3d" parent="Torches/Torch13" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch13"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch13/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch13/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch14" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.32134e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 1.11759e-08, 1, 4.56668, -0.170616, -4.15542)
+
+[node name="Torch_3d" parent="Torches/Torch14" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch14"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch14/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch14/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch15" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.26546e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 1.67638e-08, 1, 8.07153, 2.43532, -6.94803)
+
+[node name="Torch_3d" parent="Torches/Torch15" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch15"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch15/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch15/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch16" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.23752e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 2.04891e-08, 1, 7.24192, 1.8165, -6.28185)
+
+[node name="Torch_3d" parent="Torches/Torch16" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch16"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch16/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch16/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch17" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.23752e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 2.04891e-08, 1, 6.42981, 0.808374, -4.58624)
+
+[node name="Torch_3d" parent="Torches/Torch17" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch17"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch17/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch17/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="Torch18" type="Node3D" parent="Torches"]
+transform = Transform3D(1, -4.23752e-07, 6.85453e-07, 4.00469e-08, 1, 7.76723e-07, -2.68221e-07, 2.04891e-08, 1, 6.92251, -0.307103, -1.13582)
+
+[node name="Torch_3d" parent="Torches/Torch18" instance=ExtResource("27_jytsh")]
+transform = Transform3D(-0.00404409, -0.00226222, -0.00381153, -0.00301657, 0.00518509, 0.00012317, 0.00324741, 0.00199931, -0.00463218, 0.00451963, -0.000508733, 0.00369179)
+
+[node name="LightPoint" type="CSGSphere3D" parent="Torches/Torch18"]
+transform = Transform3D(0.255015, 5.12227e-09, 1.49012e-08, -2.32831e-09, 0.255015, 7.45058e-09, 0, 4.65661e-10, 0.255015, -0.126357, 0.299938, 0.11861)
+flip_faces = true
+radius = 0.1
+material = SubResource("StandardMaterial3D_fuaxu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Torches/Torch18/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Torches/Torch18/LightPoint"]
+light_color = Color(0.1058, 0.430483, 0.46, 1)
+light_energy = 1.7
+light_indirect_energy = 2.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.674014, -0.502761, 0.541235, -0.377036, 0.864182, 0.333218, -0.635255, 0.0205283, -0.77203, 7.22199, 3.37276, 7.8663)
+light_energy = 0.05
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+shadow_blur = 1.893

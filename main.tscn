@@ -1,20 +1,20 @@
 [gd_scene load_steps=17 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ycdy4"]
+[ext_resource type="Script" uid="uid://cw0tlnwxxjks5" path="res://scripts/game_manager.gd" id="1_ycdy4"]
 [ext_resource type="Script" uid="uid://cvwfp2oi3vfgt" path="res://scripts/tower_commands.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://bstrnm41l537j" path="res://scripts/turret_placing_system.gd" id="5_w48qg"]
-[ext_resource type="PackedScene" uid="uid://cmtc0ktsl0hol" path="res://scenario.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cmtc0ktsl0hol" path="res://scenario_legacy.tscn" id="6_7mycd"]
 [ext_resource type="Material" uid="uid://d62s83ljgkdn" path="res://materials/ghost_placing_mat.tres" id="6_vivmo"]
 [ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="7_272bh"]
 [ext_resource type="Script" uid="uid://b3yluy74ogwjc" path="res://scripts/projectiles_manager.gd" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://dj00r0ko3oygm" path="res://scenes/projectil_magic.tscn" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
-[ext_resource type="Script" path="res://scripts/wave_manager.gd" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://bh0iafoo1cfnj" path="res://scripts/wave_manager.gd" id="12_dg77c"]
 
 [sub_resource type="Environment" id="Environment_dg77c"]
 ssr_enabled = true

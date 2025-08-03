@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmhwsyj4pc5jl"
-path.s3tc="res://.godot/imported/atk_basic_active.png-44615efb78c568ac6af7594264fcab6c.s3tc.ctex"
+uid="uid://dnaet7q1c3sjf"
+path.s3tc="res://.godot/imported/cartoon_torch_0.jpg-4a86102304765eeb56302496c43e287b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "0f58f0cec04a1a14e9b930c15f93fa62"
+}
 
 [deps]
 
-source_file="res://ui/ui_assets/atk_basic_active.png"
-dest_files=["res://.godot/imported/atk_basic_active.png-44615efb78c568ac6af7594264fcab6c.s3tc.ctex"]
+source_file="res://models/Torch/cartoon_torch_0.jpg"
+dest_files=["res://.godot/imported/cartoon_torch_0.jpg-4a86102304765eeb56302496c43e287b.s3tc.ctex"]
 
 [params]
 
