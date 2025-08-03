@@ -164,14 +164,28 @@ light_indirect_energy = 2.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dg77c")
 
-[node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_position")]
+[node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_position", "default_spawn_spot", "spawn_spots")]
 script = ExtResource("12_dg77c")
 enemy_scene = ExtResource("4_lquwl")
 spawn_position = NodePath("../EnemySpawnSpot")
+default_spawn_spot = NodePath("../EnemySpawnSpotDefault")
+spawn_spots = [NodePath("../EnemySpawnSpot"), NodePath("../EnemySpawnSpot2"), NodePath("../EnemySpawnSpot3"), NodePath("../EnemySpawnSpot4")]
 
 [node name="SpawnTimer" type="Timer" parent="WaveManager"]
 
 [node name="WaveTimer" type="Timer" parent="WaveManager"]
 
 [node name="EnemySpawnSpot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42524, 0.786312, 4.26443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9572, 0.786312, 4.26443)
+
+[node name="EnemySpawnSpotDefault" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.91376, 0.786312, 4.26443)
+
+[node name="EnemySpawnSpot2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14296, 0.786312, 6.33927)
+
+[node name="EnemySpawnSpot3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93733, 0.786312, 12.156)
+
+[node name="EnemySpawnSpot4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42524, 0.786312, 12.7601)
