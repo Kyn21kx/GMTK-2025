@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://krxu1dr30uv5"]
+
+[ext_resource type="Script" path="res://scripts/wave_manager.gd" id="1_5np0c"]
+[ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="2_qj452"]
+
+[node name="WaveManager" type="Node" node_paths=PackedStringArray("spawn_position")]
+script = ExtResource("1_5np0c")
+enemy_scene = ExtResource("2_qj452")
+spawn_position = NodePath("")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="WaveTimer" type="Timer" parent="."]

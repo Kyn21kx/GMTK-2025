@@ -20,6 +20,7 @@ func _ready() -> void:
 	# Default update_overhead_ui to a 4 slot command buffer, maybe we support others later
 	for i in range(4):
 		slots.push_back(ProjectilesManager.Command.BasicAttack)
+	BeatManager.s_instance.quarter_beat.connect(self.on_quarter_note)
 
 func position_3d_to_screen(world_position: Vector3) -> Vector2:
 	var camera = get_viewport().get_camera_3d()
@@ -47,17 +48,22 @@ func update_overhead_ui():
 	self.overhead_ui.scale = Vector2(scale_factor, scale_factor)
 
 	# Use the command index to select which one is active
-	self.overhead_ui.set_active_slot(self.current_command_index)
+	self.overhead_ui.set_active_slot(BeatManager.s_instance.quarter_command_index)
 
+func on_quarter_note():
+	if (self.shooter.turret_type != Turret.Type.Default):
+		return
+	execute_command(slots[BeatManager.s_instance.quarter_command_index])
+
+func on_quaver_note():
+	if (self.shooter.turret_type != Turret.Type.Light):
+		return
+	execute_command(slots[BeatManager.s_instance.quaver_command_index])
+
+func on_half_note():
+	pass
 	
-func _process(delta: float) -> void:
-	var beat_speed : float = BeatManager.s_instance.get_bpm() / SECS_IN_MIN
-	var beat_rate: float = 1 / beat_speed
-	time_elapsed += delta
-	if time_elapsed >= beat_rate:
-		time_elapsed = 0;
-		execute_command(slots[current_command_index])
-		current_command_index = (current_command_index + 1) % slots.size()
+func _process(_delta: float) -> void:
 	self.update_overhead_ui()
 
 func execute_command(command: ProjectilesManager.Command):

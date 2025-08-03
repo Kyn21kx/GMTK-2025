@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://6u70e525r4pk" path="res://scenes/turret_placing_system.tscn" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://c2cqk6mkmi86i" path="res://scenes/camera_3d.tscn" id="9_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://krxu1dr30uv5" path="res://scenes/wave_manager.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
-[ext_resource type="Script" path="res://scripts/wave_manager.gd" id="12_dg77c"]
 
 [sub_resource type="Environment" id="Environment_dg77c"]
 ssr_enabled = true
@@ -135,14 +135,7 @@ light_indirect_energy = 2.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dg77c")
 
-[node name="WaveManager" type="Node" parent="." node_paths=PackedStringArray("spawn_position")]
-script = ExtResource("12_dg77c")
-enemy_scene = ExtResource("4_lquwl")
-spawn_position = NodePath("../EnemySpawnSpot")
-
-[node name="SpawnTimer" type="Timer" parent="WaveManager"]
-
-[node name="WaveTimer" type="Timer" parent="WaveManager"]
+[node name="WaveManager" parent="." instance=ExtResource("10_4c57u")]
 
 [node name="EnemySpawnSpot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42524, 0.786312, 4.26443)

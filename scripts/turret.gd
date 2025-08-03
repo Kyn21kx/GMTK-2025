@@ -1,7 +1,7 @@
 class_name Turret
 extends Node3D
 
-enum Type { Light, Heavy }
+enum Type { Light, Default, Heavy }
 
 static var turrets: Array[Turret] = []
 

@@ -18,6 +18,7 @@ size = Vector3(1.24451, 1.75293, 1.64111)
 script = ExtResource("1_322ig")
 detection_area = NodePath("DetectionArea")
 muzzle = NodePath("Muzzle")
+turret_type = 1
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_oxme8")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=38 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://6u70e525r4pk" path="res://scenes/turret_placing_system.tscn" id="29_c770d"]
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="30_x4082"]
 [ext_resource type="PackedScene" uid="uid://b8cdnatk23ko4" path="res://scenes/projectiles_manager.tscn" id="31_tnmqu"]
+[ext_resource type="PackedScene" uid="uid://krxu1dr30uv5" path="res://scenes/wave_manager.tscn" id="32_ayhb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab7ru"]
 blend_mode = 4
@@ -1308,3 +1309,6 @@ script = ExtResource("30_x4082")
 metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
 
 [node name="ProjectilesManager" parent="." instance=ExtResource("31_tnmqu")]
+
+[node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_positions") instance=ExtResource("32_ayhb7")]
+spawn_positions = [NodePath("../entrance"), NodePath("../entrance2"), NodePath("../entrance3"), NodePath("../entrance4"), NodePath("../entrance5")]

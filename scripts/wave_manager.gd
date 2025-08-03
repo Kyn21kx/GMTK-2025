@@ -6,7 +6,7 @@ signal all_waves_completed
 
 @export var enemy_scene: PackedScene
 @export var enemy_path: Path3D
-@export var spawn_position: Node3D
+@export var spawn_positions: Array[Node3D]
 
 @export var waves: Array[Dictionary] = [
 	{"enemy_count": 5, "spawn_delay": 2.0, "wave_delay": 10.0},
@@ -81,6 +81,7 @@ func spawn_enemy():
 		return
 
 	var enemy_instance: CharacterBody3D = enemy_scene.instantiate() as CharacterBody3D
-	var enemy_spawn_pos: Vector3 = spawn_position.global_position
+	var to_spawn_from : int = randi_range(0, self.spawn_positions.size() - 1)
+	var enemy_spawn_pos: Vector3 = spawn_positions[to_spawn_from].global_position
 	enemy_instance.position = enemy_spawn_pos
 	get_parent().add_child(enemy_instance)
