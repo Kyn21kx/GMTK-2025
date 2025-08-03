@@ -85,12 +85,10 @@ allowed_locations_parent = NodePath(".")
 
 [node name="PlaceSlot" type="CSGBox3D" parent="TurretPlacingSystem"]
 transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, -1.47342, 0.246497, 4.4398)
-material_override = ExtResource("6_vivmo")
 size = Vector3(1, 0.0776367, 1)
 
 [node name="PlaceSlot2" type="CSGBox3D" parent="TurretPlacingSystem"]
 transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, 1.8732, 0.246497, 4.05897)
-material_override = ExtResource("6_vivmo")
 size = Vector3(1, 0.0776367, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
