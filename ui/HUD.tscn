@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gvld7w0mgelx"]
+[gd_scene load_steps=33 format=3 uid="uid://gvld7w0mgelx"]
 
 [ext_resource type="Script" uid="uid://b4p2pgbcn446j" path="res://ui/hud.gd" id="1_pom5v"]
 [ext_resource type="Texture2D" uid="uid://cxq8os622twxo" path="res://ui/ui_assets/panel_bg.png" id="2_pfnlp"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://e13fmt6rwlpf" path="res://ui/ui_assets/coin.png" id="9_ug41v"]
 [ext_resource type="Script" uid="uid://bd4tqkkx1ufpr" path="res://scripts/ui/time.gd" id="10_37bek"]
 [ext_resource type="FontFile" uid="uid://cvhya1021biir" path="res://fonts/Bungee-Regular.ttf" id="10_ioimr"]
+[ext_resource type="Texture2D" uid="uid://fos7t6jlufkf" path="res://ui/ui_assets/icon_tower.png" id="13_cjw2x"]
 [ext_resource type="Texture2D" uid="uid://coxv7wsfgbqvt" path="res://ui/ui_assets/key_black.png" id="15_mpo0d"]
 [ext_resource type="PackedScene" uid="uid://vmnrmvodcq6y" path="res://ui/notification.tscn" id="19_ioimr"]
 
@@ -227,6 +228,40 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 16
+
+[node name="add_tower" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TimePanel/HBoxContainer/add_tower"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("13_cjw2x")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/add_tower"]
+layout_mode = 2
+text = "Add Tower:"
+
+[node name="btn_key" type="TextureRect" parent="TimePanel/HBoxContainer/add_tower"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("6_a33y5")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TimePanel/HBoxContainer/add_tower/btn_key"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_top = -2.0
+offset_right = 6.5
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="basic_attack" type="HBoxContainer" parent="TimePanel/HBoxContainer"]
 layout_mode = 2
