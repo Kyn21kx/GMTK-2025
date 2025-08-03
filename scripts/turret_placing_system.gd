@@ -33,6 +33,8 @@ func _process(delta: float) -> void:
 		self.is_placing = !self.is_placing
 		if (self.is_placing):
 			instantiate_ghost_node()
+		elif (self.ghost_node != null):
+			self.ghost_node.queue_free()
 
 	if (self.is_placing):
 		self.drag_ghost_node(delta)
@@ -91,23 +93,26 @@ func drag_ghost_node(delta) -> void:
 	self.ghost_node.global_position = mouse_pos
 
 	var closest_node: Node3D = null
-	const min_dis: float = 1.79769e308
+	var min_dis: float = 1.79769e308
 	for location: Node3D in allowed_locations:
-		var sqr_dis := self.global_position.distance_squared_to(location.global_position)
-		if (sqr_dis < min_dis):
+		var sqr_dis := self.ghost_node.global_position.distance_squared_to(location.global_position)
+		if (location.get_children().is_empty() && sqr_dis < min_dis):
 			closest_node = location
+			min_dis = sqr_dis
 
-	if (min_dis > 10):
+	if (min_dis > 1):
 		self.ghost_material.emission = Color.RED
-	else:
-		self.ghost_material.emission = self.initial_ghost_emission
+		return
 
-	
+	self.ghost_material.emission = self.initial_ghost_emission
 	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		self.is_placing = false
+		self.ghost_node.reparent(closest_node)
+		self.ghost_node.position = Vector3.ZERO
 		apply_mat_to_mesh_instances(self.ghost_node, func (mesh: MeshInstance3D):
 			mesh.material_override = null
 			pass
 		)
+		self.ghost_node = null
 	# Change the color depending on our proximity to the nodes that
 	pass

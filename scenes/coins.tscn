@@ -135,6 +135,8 @@ visible = false
 light_color = Color(0.839216, 0.596078, 0.176471, 1)
 
 [node name="SelectableItem" type="StaticBody3D" parent="." index="3" node_paths=PackedStringArray("mesh_instances", "selectable_target")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_o4aag")
 mesh_instances = [NodePath("../Sketchfab_model2/Coins_OBJ_cleaner_gles/Object_2/Object_3"), NodePath("../Sketchfab_model2/Coins_OBJ_cleaner_gles/Object_2/Object_4"), NodePath("../Sketchfab_model2/Coins_OBJ_cleaner_gles2/Object_2/Object_3"), NodePath("../Sketchfab_model2/Coins_OBJ_cleaner_gles2/Object_2/Object_4")]
 selectable_target = NodePath("..")

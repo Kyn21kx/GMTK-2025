@@ -77,7 +77,6 @@ func handle_mouse_movement(delta: float) -> void:
 	current_position.y = lerp(current_position.y, self.target_zoom_y, delta * self.zoom_blend_speed)
 	velocity.y = 0
 	velocity = velocity.normalized()
-	print("Velocity: ", velocity)
 	current_position += velocity * self.speed * delta
 	current_position.y = clampf(current_position.y, self.initial_height, self.zoom_limit)
 
@@ -98,6 +97,7 @@ func handle_hover_item() -> void:
 	var query = PhysicsRayQueryParameters3D.new()
 	query.from = from
 	query.to = to
+	query.collision_mask = 1 | 2
 	query.set_collide_with_bodies(true)
 
 	var result = space_state.intersect_ray(query)

@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 
 	var should_continue_process : bool = not aprox_equal_threshold(target, current)
 	if !should_continue_process:
-		current = target
+		self.initial = target
 		set("theme_override_colors/font_color", base_color)
 
 	text = "$%d" % current
