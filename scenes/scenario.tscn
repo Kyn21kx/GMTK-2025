@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=32 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -38,6 +38,13 @@ albedo_color = Color(0.889009, 0.664021, 0.403698, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuaxu"]
 albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="Environment" id="Environment_jytsh"]
+ssr_enabled = true
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 1.77
+glow_bloom = 0.25
 
 [node name="Scenario" type="Node3D"]
 
@@ -1263,8 +1270,11 @@ light_indirect_energy = 2.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.674014, -0.502761, 0.541235, -0.377036, 0.864182, 0.333218, -0.635255, 0.0205283, -0.77203, 7.22199, 3.37276, 7.8663)
-light_energy = 0.05
+light_energy = 0.0
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 0.0
 shadow_blur = 1.893
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jytsh")

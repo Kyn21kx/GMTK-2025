@@ -27,13 +27,14 @@ func _on_money_changed(next: float):
 		target_color = decreasing_color
 
 	if aprox_equal_threshold(target, initial):
+		self.initial = target
 		text = "$%d" % initial
 		set("theme_override_colors/font_color", base_color)
 		set_process(false)
 	else:
 		set_process(true)
 
-func aprox_equal_threshold(a: float, b: float, threshold: float = 0.05) -> bool:
+func aprox_equal_threshold(a: float, b: float, threshold: float = 1) -> bool:
 	return abs(a - b) <= threshold
 
 func _process(delta: float) -> void:
