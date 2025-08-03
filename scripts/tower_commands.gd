@@ -46,8 +46,6 @@ func update_overhead_ui():
 	self.overhead_ui.position = position_3d_to_screen(overhead_position)
 	self.overhead_ui.scale = Vector2(scale_factor, scale_factor)
 
-	self.shooter.add_child(self.overhead_ui)
-
 	# Use the command index to select which one is active
 	self.overhead_ui.set_active_slot(self.current_command_index)
 

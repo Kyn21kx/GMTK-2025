@@ -1,16 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dkrek85drmrcm"]
+[gd_scene load_steps=12 format=3 uid="uid://dkrek85drmrcm"]
 
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="1_ig7tw"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ycdy4"]
-[ext_resource type="Script" uid="uid://cu33sk4vrqmwd" path="res://scripts/camera_system.gd" id="2_4c57u"]
+[ext_resource type="PackedScene" uid="uid://b8cdnatk23ko4" path="res://scenes/projectiles_manager.tscn" id="3_4c57u"]
 [ext_resource type="PackedScene" uid="uid://ekvd4x362un0" path="res://models/kenney_castle-kit/Models/GLB format/siege-tower.glb" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b1y3alau8s1yk" path="res://scenes/enemy.tscn" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://bstrnm41l537j" path="res://scripts/turret_placing_system.gd" id="5_w48qg"]
-[ext_resource type="Material" uid="uid://d62s83ljgkdn" path="res://materials/ghost_placing_mat.tres" id="6_vivmo"]
+[ext_resource type="PackedScene" uid="uid://6u70e525r4pk" path="res://scenes/turret_placing_system.tscn" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="7_272bh"]
-[ext_resource type="Script" uid="uid://b3yluy74ogwjc" path="res://scripts/projectiles_manager.gd" id="7_kek77"]
-[ext_resource type="PackedScene" uid="uid://sucn46hw8pud" path="res://scenes/projectil.tscn" id="8_4c57u"]
-[ext_resource type="PackedScene" uid="uid://dj00r0ko3oygm" path="res://scenes/projectil_magic.tscn" id="9_efxa6"]
+[ext_resource type="PackedScene" uid="uid://c2cqk6mkmi86i" path="res://scenes/camera_3d.tscn" id="9_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="10_efxa6"]
 [ext_resource type="Script" path="res://scripts/wave_manager.gd" id="12_dg77c"]
 
@@ -64,40 +61,16 @@ radius = 0.2
 script = ExtResource("1_ig7tw")
 metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
 
-[node name="ProjectilesManager" type="Node" parent="."]
-script = ExtResource("7_kek77")
-projectile_scenes = Dictionary[int, PackedScene]({
-0: ExtResource("8_4c57u"),
-1: ExtResource("9_efxa6"),
-2: ExtResource("8_4c57u")
-})
-metadata/_custom_type_script = "uid://b3yluy74ogwjc"
+[node name="ProjectilesManager" parent="." instance=ExtResource("3_4c57u")]
 
-[node name="TurretPlacingSystem" type="Node3D" parent="." node_paths=PackedStringArray("allowed_locations_parent")]
-script = ExtResource("5_w48qg")
-_available_turrets_by_name = Dictionary[int, PackedScene]({
-0: ExtResource("7_272bh")
-})
-ghost_material = ExtResource("6_vivmo")
-allowed_locations_parent = NodePath(".")
-
-[node name="PlaceSlot" type="CSGBox3D" parent="TurretPlacingSystem"]
-transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, -1.47342, 0.246497, 4.4398)
-size = Vector3(1, 0.0776367, 1)
-
-[node name="PlaceSlot2" type="CSGBox3D" parent="TurretPlacingSystem"]
-transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, 1.8732, 0.246497, 4.05897)
-size = Vector3(1, 0.0776367, 1)
+[node name="TurretPlacingSystem" parent="." instance=ExtResource("6_dg77c")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(13.7756, 0, 0, 0, 0.253638, 0, 0, 0, 9.71064, 0, 0, 0)
 use_collision = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" parent="." instance=ExtResource("9_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0.862187, 4.71731, 3.35591)
-fov = 60.0
-script = ExtResource("2_4c57u")
-speed = 3.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.970197, 0.241975, -0.0128731, -0.154515, 0.658702, 0.736367, 0.186662, -0.712432, 0.67646, 1.44224, 0.776473, 0.413263)

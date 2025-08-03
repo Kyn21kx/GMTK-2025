@@ -96,7 +96,8 @@ func drag_ghost_node(delta) -> void:
 	var min_dis: float = 1.79769e308
 	for location: Node3D in allowed_locations:
 		var sqr_dis := self.ghost_node.global_position.distance_squared_to(location.global_position)
-		if (location.get_children().is_empty() && sqr_dis < min_dis):
+		const child_count_original = 2
+		if (location.get_child_count() <= child_count_original && sqr_dis < min_dis):
 			closest_node = location
 			min_dis = sqr_dis
 

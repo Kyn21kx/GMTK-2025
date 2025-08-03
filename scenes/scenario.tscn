@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=37 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -27,10 +27,17 @@
 [ext_resource type="PackedScene" uid="uid://djuhlujl0w3mk" path="res://models/kenney_castle-kit/Models/GLB format/siege-ram-demolished.glb" id="25_nvywk"]
 [ext_resource type="PackedScene" uid="uid://ch3agqj71h8cd" path="res://models/kenney_castle-kit/Models/GLB format/tower-square.glb" id="26_1c8nx"]
 [ext_resource type="PackedScene" uid="uid://c82664qpgp2ew" path="res://models/Torch/cartoon_torch.glb" id="27_jytsh"]
+[ext_resource type="PackedScene" uid="uid://c2cqk6mkmi86i" path="res://scenes/camera_3d.tscn" id="28_fuaxu"]
+[ext_resource type="PackedScene" uid="uid://6u70e525r4pk" path="res://scenes/turret_placing_system.tscn" id="29_c770d"]
+[ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="30_x4082"]
+[ext_resource type="PackedScene" uid="uid://b8cdnatk23ko4" path="res://scenes/projectiles_manager.tscn" id="31_tnmqu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab7ru"]
 blend_mode = 4
 albedo_color = Color(0.874118, 0.716586, 0.62347, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnmqu"]
+size = Vector3(1.74722, 0.0241356, 24.2902)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpct5"]
 blend_mode = 4
@@ -38,6 +45,9 @@ albedo_color = Color(0.889009, 0.664021, 0.403698, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuaxu"]
 albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 0.447059, 0.862745, 1)
+emission_energy_multiplier = 16.0
 
 [sub_resource type="Environment" id="Environment_jytsh"]
 ssr_enabled = true
@@ -212,6 +222,14 @@ transform = Transform3D(1, 6.30962e-11, 0, -1.39153e-10, 1, 1.81899e-12, 7.45058
 
 [node name="ground-hills9" parent="groundhills" instance=ExtResource("3_lt46v")]
 transform = Transform3D(-1.78875, -0.000917194, 1.95381e-05, -0.00872008, 0.999998, -2.42453e-05, -0.00514875, -0.00067559, -1.00304, 0.445286, 0.00217165, 0.0385294)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="groundhills"]
+transform = Transform3D(1, 4.83169e-12, -5.82077e-11, -1.46315e-10, 1, 1.81899e-12, 0, -4.07454e-10, 1, 0.426407, -0.00435063, 11.6451)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="groundhills/StaticBody3D"]
+transform = Transform3D(1, 4.86011e-12, 0, -1.46315e-10, 1, 1.81899e-12, 0, -5.82077e-11, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_tnmqu")
+debug_color = Color(0.572549, 0, 0.588235, 0.494118)
 
 [node name="ground2" parent="." instance=ExtResource("4_ar7cb")]
 transform = Transform3D(20, 0, 0, 0, 1.065, 0, 0, 0, 20, 0.599784, 0.126819, 0.673146)
@@ -1278,3 +1296,15 @@ shadow_blur = 1.893
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jytsh")
+
+[node name="Camera3D" parent="." instance=ExtResource("28_fuaxu")]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 4.717, 0)
+
+[node name="TurretPlacingSystem" parent="." node_paths=PackedStringArray("allowed_locations_parent") instance=ExtResource("29_c770d")]
+allowed_locations_parent = NodePath("../tower_locations")
+
+[node name="BeatManager" type="Node" parent="."]
+script = ExtResource("30_x4082")
+metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
+
+[node name="ProjectilesManager" parent="." instance=ExtResource("31_tnmqu")]

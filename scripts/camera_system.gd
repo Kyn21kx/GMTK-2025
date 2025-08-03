@@ -74,13 +74,13 @@ func handle_mouse_movement(delta: float) -> void:
 
 	# Horrible code, sorry
 	var current_position := self.global_position
-	current_position.y = lerp(current_position.y, self.target_zoom_y, delta * self.zoom_blend_speed)
+	current_position.y = self.target_zoom_y
 	velocity.y = 0
 	velocity = velocity.normalized()
-	current_position += velocity * self.speed * delta
+	current_position += velocity
 	current_position.y = clampf(current_position.y, self.initial_height, self.zoom_limit)
 
-	self.global_position = current_position
+	self.global_position = lerp(self.global_position, current_position, self.speed * delta)
 	self.last_mouse_posistion = mouse_position
 
 

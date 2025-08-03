@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://6u70e525r4pk"]
+
+[ext_resource type="Script" uid="uid://bstrnm41l537j" path="res://scripts/turret_placing_system.gd" id="1_dfdaa"]
+[ext_resource type="PackedScene" uid="uid://bj00uy7063ljh" path="res://scenes/turret_ballista.tscn" id="2_5qq7a"]
+[ext_resource type="Material" uid="uid://d62s83ljgkdn" path="res://materials/ghost_placing_mat.tres" id="3_kub6q"]
+
+[node name="TurretPlacingSystem" type="Node3D" node_paths=PackedStringArray("allowed_locations_parent")]
+script = ExtResource("1_dfdaa")
+_available_turrets_by_name = Dictionary[int, PackedScene]({
+0: ExtResource("2_5qq7a")
+})
+ghost_material = ExtResource("3_kub6q")
+allowed_locations_parent = NodePath(".")
+
+[node name="PlaceSlot" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, -1.47342, 0.246497, 4.4398)
+size = Vector3(1, 0.0776367, 1)
+
+[node name="PlaceSlot2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.01473, 0, 0, 0, 1, 1.8732, 0.246497, 4.05897)
+size = Vector3(1, 0.0776367, 1)
