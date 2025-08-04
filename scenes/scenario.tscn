@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://budamopkpnsxy"]
+[gd_scene load_steps=40 format=3 uid="uid://budamopkpnsxy"]
 
 [ext_resource type="PackedScene" uid="uid://c72qy1j8ku0b1" path="res://models/kenney_castle-kit/Models/GLB format/door.glb" id="1_dmg1w"]
 [ext_resource type="PackedScene" uid="uid://ukbab3j12ei7" path="res://models/kenney_castle-kit/Models/GLB format/tower-top.glb" id="2_bvkh7"]
@@ -32,6 +32,8 @@
 [ext_resource type="Script" uid="uid://cpoq0jx7ynmx4" path="res://scripts/beat_manager.gd" id="30_x4082"]
 [ext_resource type="PackedScene" uid="uid://b8cdnatk23ko4" path="res://scenes/projectiles_manager.tscn" id="31_tnmqu"]
 [ext_resource type="PackedScene" uid="uid://krxu1dr30uv5" path="res://scenes/wave_manager.tscn" id="32_ayhb7"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="33_ytle3"]
+[ext_resource type="PackedScene" uid="uid://gvld7w0mgelx" path="res://ui/HUD.tscn" id="34_ors8k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab7ru"]
 blend_mode = 4
@@ -98,94 +100,94 @@ use_collision = true
 size = Vector3(0.209282, 1, 0.550084)
 material = SubResource("StandardMaterial3D_ab7ru")
 
-[node name="entrance" type="Node3D" parent="."]
+[node name="entrance03" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, 1.9183)
 
-[node name="metal-gate3" parent="entrance" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance03" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance03" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="siege-catapult2" parent="entrance" instance=ExtResource("3_kcrnp")]
+[node name="siege-catapult2" parent="entrance03" instance=ExtResource("3_kcrnp")]
 transform = Transform3D(0.0294867, 0, -0.635961, 0, 0.733655, 0, 0.711855, 0, 0.026343, -1.20942, 0.097147, 1.06535)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance03"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
 omni_range = 0.625
 
-[node name="entrance2" type="Node3D" parent="."]
+[node name="entrance02" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -0.613472)
 
-[node name="metal-gate3" parent="entrance2" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance02" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance2" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance02" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance2"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance02"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
 omni_range = 0.625
 
-[node name="entrance3" type="Node3D" parent="."]
+[node name="entrance01" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -4.04537)
 
-[node name="metal-gate3" parent="entrance3" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance01" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance3" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance01" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance3"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance01"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
 omni_range = 0.625
 
-[node name="entrance4" type="Node3D" parent="."]
+[node name="entrance00" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, -7.97276)
 
-[node name="metal-gate3" parent="entrance4" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance00" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance4" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance00" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance4"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance00"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
 omni_range = 0.625
 
-[node name="entrance5" type="Node3D" parent="."]
+[node name="entrance04" type="Node3D" parent="."]
 transform = Transform3D(-0.041387, 0, -0.999145, 0, 1, 0, 0.999145, 0, -0.041387, 9.68911, 0.142614, 7.81152)
 
-[node name="metal-gate3" parent="entrance5" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance04" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance5" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance04" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance5"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance04"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
 omni_range = 0.625
 
-[node name="entrance6" type="Node3D" parent="."]
+[node name="entrance05" type="Node3D" parent="."]
 transform = Transform3D(-0.999145, 0, 0.041387, 0, 1, 0, -0.041387, 0, -0.999145, -2.6099, 0.142615, 9.63183)
 
-[node name="metal-gate3" parent="entrance6" instance=ExtResource("5_vlxiu")]
+[node name="metal-gate3" parent="entrance05" instance=ExtResource("5_vlxiu")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.0285374, -0.0157953, 0.731072)
 
-[node name="tower-top3" parent="entrance6" instance=ExtResource("2_bvkh7")]
+[node name="tower-top3" parent="entrance05" instance=ExtResource("2_bvkh7")]
 transform = Transform3D(-0.0413869, 0, 0.999142, 0, 1, 0, -0.999142, 0, -0.0413869, 0.00116944, -0.0137038, 0.00904083)
 
-[node name="spawn_light" type="OmniLight3D" parent="entrance6"]
+[node name="spawn_light" type="OmniLight3D" parent="entrance05"]
 transform = Transform3D(0.999998, 0, 3.72529e-09, 0, 1, 0, -3.72529e-09, 0, 0.999998, 0, 0.309191, 0)
 light_color = Color(0.332161, 0.548817, 0.786439, 1)
 light_energy = 4.486
@@ -1310,5 +1312,231 @@ metadata/_custom_type_script = "uid://cpoq0jx7ynmx4"
 
 [node name="ProjectilesManager" parent="." instance=ExtResource("31_tnmqu")]
 
-[node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_positions") instance=ExtResource("32_ayhb7")]
-spawn_positions = [NodePath("../entrance"), NodePath("../entrance2"), NodePath("../entrance3"), NodePath("../entrance4"), NodePath("../entrance5")]
+[node name="WaveManager" parent="." node_paths=PackedStringArray("spawn_positions", "waypoints_parents", "default_spawn_spot", "spawn_spots") instance=ExtResource("32_ayhb7")]
+spawn_positions = [NodePath("../entrance00"), NodePath("../entrance01"), NodePath("../entrance02"), NodePath("../entrance03"), NodePath("../entrance04")]
+waypoints_parents = [NodePath("../Waypoints0"), NodePath("../Waypoints1"), NodePath("../Waypoints2"), NodePath("../Waypoints3"), NodePath("../Waypoints4"), NodePath("../Waypoints5")]
+default_spawn_spot = NodePath("../Waypoints0")
+spawn_spots = [NodePath("../entrance00"), NodePath("../entrance01"), NodePath("../entrance02"), NodePath("../entrance03"), NodePath("../entrance04")]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("33_ytle3")
+
+[node name="Waypoints0" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30864, 0, -7.8557)
+radius = 0.3
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55268, 0, -6.92171)
+radius = 0.3
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9291, 0, -5.71923)
+radius = 0.3
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9262, 0, -3.88855)
+radius = 0.3
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20588, 0, -3.74237)
+radius = 0.3
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26722, 0, -2.54952)
+radius = 0.3
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706088, 0, -2.54952)
+radius = 0.3
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1108, 0, -3.54498)
+radius = 0.3
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.39385, 0, -3.54498)
+radius = 0.3
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52071, 0, -2.59366)
+radius = 0.3
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59011, 0, 0.461149)
+radius = 0.3
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Waypoints0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6359, 0, 0.778784)
+radius = 0.3
+
+[node name="Waypoints1" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20588, 0, -3.74237)
+radius = 0.3
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26722, 0, -2.54952)
+radius = 0.3
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706088, 0, -2.54952)
+radius = 0.3
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1108, 0, -3.54498)
+radius = 0.3
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.39385, 0, -3.54498)
+radius = 0.3
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.52071, 0, -2.59366)
+radius = 0.3
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.59011, 0, 0.461149)
+radius = 0.3
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Waypoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6359, 0, 0.778784)
+radius = 0.3
+
+[node name="Waypoints2" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85392, 0, -0.651182)
+radius = 0.3
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40906, 0, 0.383146)
+radius = 0.3
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42811, 0, 0.383146)
+radius = 0.3
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64537, 0, -1.17824)
+radius = 0.3
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62082, 0, 0.456609)
+radius = 0.3
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55801, 0, 0.913252)
+radius = 0.3
+
+[node name="Waypoints3" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64781, 0, 2.0617)
+radius = 0.3
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.30876, 0, 2.5818)
+radius = 0.3
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.30876, 0, 4.21551)
+radius = 0.3
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66195, 0, 5.31545)
+radius = 0.3
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.66195, 0, 7.69672)
+radius = 0.3
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60383, 0, 7.4393)
+radius = 0.3
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27337, 0, 4.46976)
+radius = 0.3
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13979, 0, 2.98244)
+radius = 0.3
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68447, 0, 2.92969)
+radius = 0.3
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.34142, 0, 0.970487)
+radius = 0.3
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="Waypoints3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52524, 0, 0.806259)
+radius = 0.3
+
+[node name="Waypoints4" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60383, 0, 7.4393)
+radius = 0.3
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27337, 0, 4.46976)
+radius = 0.3
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13979, 0, 2.98244)
+radius = 0.3
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68447, 0, 2.92969)
+radius = 0.3
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.34142, 0, 0.970487)
+radius = 0.3
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="Waypoints4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52524, 0, 0.806259)
+radius = 0.3
+
+[node name="Waypoints5" type="Node3D" parent="."]
+visible = false
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54956, 0, 7.62166)
+radius = 0.3
+
+[node name="CSGSphere3D16" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73619, 0, 5.65321)
+radius = 0.3
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27337, 0, 4.46976)
+radius = 0.3
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13979, 0, 2.98244)
+radius = 0.3
+
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68447, 0, 2.92969)
+radius = 0.3
+
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.34142, 0, 0.970487)
+radius = 0.3
+
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="Waypoints5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.52524, 0, 0.806259)
+radius = 0.3
+
+[node name="Hud" parent="." instance=ExtResource("34_ors8k")]

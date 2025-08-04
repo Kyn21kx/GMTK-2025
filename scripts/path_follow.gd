@@ -16,9 +16,10 @@ signal arrived
 var _waypoint_parent: Node3D
 var _waypoints: Array[Node3D]
 var _current_waypoint_idx: int = 0
+var is_setup: bool = false
 
 func _ready() -> void:
-	set_physics_process(false)
+	set_physics_process(self.is_setup)
 
 func setup(waypoint_parent) -> void:
 	assert(waypoint_parent != null)
@@ -26,10 +27,10 @@ func setup(waypoint_parent) -> void:
 	for child: Node3D in _waypoint_parent.get_children():
 		_waypoints.append(child)
 
-	_waypoints.reverse() # Temporary fix, we need to remove this
 
 	assert(!_waypoints.is_empty())
-	set_physics_process(true)
+	self.is_setup = true # Yes, this is needed
+	set_physics_process(self.is_setup)
 
 
 func _physics_process(delta: float) -> void:

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name EnemyAgent
+
 @export var _path_follow: PathFollow
 @export var _attack_tower := false
 @export var _attack_timer: Timer
@@ -13,11 +15,13 @@ var game_manager: GameManager
 
 func _ready() -> void:
 	game_manager = GameManager.instance
-	_waypoint_parent = game_manager.waypoints_container
-	_path_follow.setup(_waypoint_parent)
 	_attack_timer.wait_time = _attack_cooldown
 	set_process(_attack_tower)
 
+func start_path(waypoint_parent: Node3D):
+	_waypoint_parent = waypoint_parent
+	_path_follow.setup(_waypoint_parent)
+	pass
 
 func _process(delta: float) -> void:
 	for turret in Turret.turrets:

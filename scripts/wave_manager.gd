@@ -7,6 +7,7 @@ signal all_waves_completed
 @export var enemy_scene: PackedScene
 @export var enemy_path: Path3D
 @export var spawn_positions: Array[Node3D]
+@export var waypoints_parents: Array[Node3D]
 
 @export var waves: Array[Dictionary] = [
 	{"enemy_count": 5, "spawn_delay": 2.0, "wave_delay": 10.0, "spawn_spot": null},
@@ -27,6 +28,7 @@ var is_in_wave = false
 
 
 func _ready():
+	assert(self.waypoints_parents.size() >= self.spawn_positions.size())
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	wave_timer.timeout.connect(_on_wave_timer_timeout)
 
@@ -62,6 +64,7 @@ func _on_spawn_timer_timeout():
 
 	var current_wave_data = waves[current_wave_index]
 	var wave_spawn_spot: Node3D = default_spawn_spot
+	var waypoint_parent: Node3D = self.waypoints_parents[current_wave_index]
 	if current_wave_index + 1 <= spawn_spots.size():
 		wave_spawn_spot = spawn_spots[current_wave_index]
 
@@ -73,7 +76,7 @@ func _on_spawn_timer_timeout():
 		wave_timer.start()
 		return
 
-	spawn_enemy(wave_spawn_spot.global_position)
+	spawn_enemy(wave_spawn_spot.global_position, waypoint_parent)
 	enemies_spawned_in_wave += 1
 
 
@@ -81,11 +84,12 @@ func _on_wave_timer_timeout():
 	start_next_wave()
 
 
-func spawn_enemy(spawn_pos: Vector3):
+func spawn_enemy(spawn_pos: Vector3, waypoint_parent: Node3D):
 	if not enemy_scene:
 		printerr("ERROR: La escena del enemigo no está asignada en el WaveManager.")
 		return
 
-	var enemy_instance: CharacterBody3D = enemy_scene.instantiate() as CharacterBody3D
+	var enemy_instance: EnemyAgent = enemy_scene.instantiate() as EnemyAgent
+	enemy_instance.start_path(waypoint_parent)
 	enemy_instance.position = spawn_pos
-	get_parent().add_child(enemy_instance)
+	self.get_parent().call_deferred("add_child", enemy_instance)
